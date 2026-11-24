@@ -42,4 +42,4 @@
 - [x] Wrap up: README, previews, Pages workflow, art sheet
 - [x] Publish: live at https://chieftoyofficer.synapticnoise.com/ (HTTPS on), repo zeveck/xmas-clicker (public, one fresh commit; the planning history stays local on local-history because an old note held a temp path), DNS added at GoDaddy, top of the synapticnoise.com gallery, plans card Published
 - Art sheet: https://synapticnoise.com/plans/chief-toy-officer/art/
-- [x] Change 5: "a remake of Xmas Clicker" removed from the title screen, the page description, the README and the design (credits still name the 2017 original). Checked: title screen scanned and Start pressed at 6 sizes. Not yet published; on the next publish also drop the phrase from the synapticnoise.com gallery card's description.
+- [x] Change 5: "a remake of Xmas Clicker" removed from the title screen, the page description, the README and the design (credits still name the 2017 original). Checked: title screen scanned and Start pressed at 6 sizes. Published 2026-11-24 (`/gamegen:gamegen --out xmas-clicker --publish --no-confirm`); gallery card, plans card and design page no longer say it either.
