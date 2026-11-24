@@ -2,8 +2,6 @@
 
 *Hammer your way from Assistant Junior Toy Maker to the top of Santa's workshop.*
 
-A remake of Xmas Clicker (2017).
-
 ## Pitch
 
 You're Pip, the newest elf in Santa's workshop. Tap the workbench to hammer
@@ -24,7 +22,7 @@ Officer and you build the last toy before the sleigh leaves on Christmas Eve.
 - Feedback: on (a "Report a bug" button for players; see the tech plan)
 - Remake of: Xmas Clicker (synapticnoise.com/xmasclicker), leeway lots. See `ORIGINAL.md`.
 - Decisions made on the player's behalf:
-  - The new name is **Chief Toy Officer**, with "a remake of Xmas Clicker" under the title.
+  - The new name is **Chief Toy Officer**. The game never calls itself a remake of Xmas Clicker (changed on request, 2026-11-24); the credits still name the 2017 original.
   - Three names change for originality: **Thunder Mallet** (was Thor's Hammer), **Pixel Play** console (was Super Game System), **Doodle Dial** (was Sketch An Etch).
   - The original's toy "value" becomes **cookies**, the money you spend.
   - Sean's prototype supplies the helpers: elves, elf hammers, and click upgrades (the hammers).
@@ -294,7 +292,7 @@ work past 90% isn't used. Later Smartphones work like any toy.
 ## Screens
 
 - **Title:** the workshop at night through a frosted window. The game name
-  is in Mountains of Christmas, with "a remake of Xmas Clicker" below. The
+  is in Mountains of Christmas, with no subtitle. The
   buttons are "Start building" (or "Keep building" with a save) and "How to
   play".
 - **How to play:** three short cards with pictures: tap the bench to build

@@ -55,7 +55,6 @@ gh-feedback { font-family: Nunito, system-ui, sans-serif; }
   font: 700 clamp(46px, 9vmin, 104px)/1 'Mountains of Christmas', serif; color: #ffe9b0;
   text-shadow: 0 3px 0 var(--cranberry-d), 0 6px 0 #0007, 0 0 30px #ffcf6a66; text-wrap: balance;
 }
-.subtitle { margin: 6px 0 0; color: #fff3da; font-weight: 800; font-size: clamp(16px, 2.6vmin, 22px); text-shadow: 0 2px 4px #000c; }
 .title-buttons { position: relative; display: flex; flex-direction: column; gap: 12px; align-items: center; padding: 0 16px calc(6vh + var(--sab)); }
 .title-buttons .btn-big { min-width: 240px; font-size: 22px; }
 .title-buttons .btn-quiet { min-width: 180px; }

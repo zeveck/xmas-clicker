@@ -8,8 +8,6 @@ watch the presents pile up under the tree. Every promotion unlocks a new toy
 and a sillier job title, until Santa names you Chief Toy Officer and you build
 the last toy before the sleigh leaves on Christmas Eve.
 
-A remake of Xmas Clicker (2017).
-
 **[▶ Play Chief Toy Officer](https://chieftoyofficer.synapticnoise.com/)** in your browser. No
 install, works on desktop and on phones.
 
