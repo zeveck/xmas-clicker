@@ -39,4 +39,5 @@
 - [x] Final review: bug hunter (3 must-fix: away time lost on the title, finale lost on reload, pause over cards; all fixed) and playtester (no must-fix; best-buy hints added, tab dots, labels)
 - [x] Polish pass: 1 must-fix (800x600 window: stage covered the shop; now side-by-side) and 9 smaller, all fixed and rechecked at every size
 - [x] Wrap up: README, previews, Pages workflow, art sheet
-- [ ] Publish: main is a fresh one-commit branch (the planning run's note had a temp path; full history kept locally on local-history, never pushed)
+- [x] Publish: live at https://chieftoyofficer.synapticnoise.com/ (HTTPS on), repo zeveck/xmas-clicker (public, one fresh commit; the planning history stays local on local-history because an old note held a temp path), DNS added at GoDaddy, top of the synapticnoise.com gallery, plans card Published
+- Art sheet: https://synapticnoise.com/plans/chief-toy-officer/art/
