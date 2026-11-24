@@ -1,0 +1,16 @@
+{
+  "name": "Chief Toy Officer",
+  "short_name": "Toy Officer",
+  "description": "A cozy Christmas clicker: hammer toys together in Santa's workshop and climb to Chief Toy Officer before Christmas Eve.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#2a1a12",
+  "theme_color": "#9e2a2b",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

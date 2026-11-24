@@ -1,0 +1,10 @@
+{
+  "size": [512, 512],
+  "fps": 12,
+  "frames": [
+    {"label": "idle",   "fist": [250, 222], "angle": -20, "fistCrop": [237, 205, 28, 32]},
+    {"label": "raise",  "fist": [177, 95],  "angle": -70, "fistCrop": [160, 83, 33, 22]},
+    {"label": "strike", "fist": [368, 263], "angle": 85,  "fistCrop": [347, 248, 43, 34]},
+    {"label": "follow", "fist": [367, 273], "angle": 100, "fistCrop": [345, 257, 40, 31]}
+  ]
+}

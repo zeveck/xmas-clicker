@@ -1,0 +1,7 @@
+.env
+.gamegen/
+.anim8gen/
+assets/anim8gen/
+.playwright/
+.*-history.jsonl
+node_modules/

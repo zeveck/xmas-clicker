@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chief Toy Officer: a cozy Christmas clicker</title>
+<meta name="description" content="Hammer toys together in Santa's workshop, hire elves, and climb from Assistant Junior Toy Maker to Chief Toy Officer before Christmas Eve. A remake of Xmas Clicker.">
+<meta name="theme-color" content="#9e2a2b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chief Toy Officer">
+<meta property="og:description" content="A cozy Christmas clicker: hammer toys together in Santa's workshop and climb to the top before Christmas Eve.">
+<link rel="canonical" href="https://chieftoyofficer.synapticnoise.com/">
+<meta property="og:url" content="https://chieftoyofficer.synapticnoise.com/">
+<meta property="og:image" content="https://chieftoyofficer.synapticnoise.com/social-card.jpg">
+<meta name="twitter:image" content="https://chieftoyofficer.synapticnoise.com/social-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pip the elf at the workbench in Santa's workshop, under the title Chief Toy Officer">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="fonts/mountains-of-christmas-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="vendor/report.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-gear" viewBox="0 0 24 24"><path fill="currentColor" d="M19.4 13a7.5 7.5 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3.3h-4l-.4 2.6a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.5 7.5 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1l.4 2.6h4l.4-2.6a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path fill="#fff4dc" stroke="#3b2414" stroke-width="1.4" stroke-linejoin="round" d="M9 13V4.5a1.6 1.6 0 0 1 3.2 0V11l.1-1.6a1.5 1.5 0 0 1 3 .2V11a1.5 1.5 0 0 1 3 .1v1.2a1.4 1.4 0 0 1 2.7.3V16c0 3.6-2.6 6-6.2 6h-1.4c-2.2 0-3.6-1-4.8-2.6L5 15.2a1.6 1.6 0 0 1 2.5-2z"/></symbol>
+</svg>
+
+<!-- Title -->
+<section id="title" class="screen loading" data-screen="title">
+  <div class="title-art"></div>
+  <div class="title-text">
+    <h1>Chief Toy Officer</h1>
+    <p class="subtitle">a remake of Xmas Clicker</p>
+  </div>
+  <div class="title-buttons">
+    <button id="btn-start" class="btn-big">Start building</button>
+    <button id="btn-howto" class="btn-quiet">How to play</button>
+  </div>
+  <a class="title-link left" href="https://synapticnoise.com/">synapticnoise.com</a>
+  <a class="title-link right" href="https://github.com/zeveck/xmas-clicker" target="_blank" rel="noopener" title="Chief Toy Officer on GitHub: how it was made">GitHub</a>
+</section>
+
+<!-- How to play -->
+<section id="howto" class="screen" data-screen="howto" hidden>
+  <div class="howto-box">
+    <h2>How to play</h2>
+    <div class="howto-cards">
+      <figure class="howto-card"><div class="howto-pic pic-1"><img src="assets/sprites/pip-swing/frame-2.webp" alt="" class="hp-pip"><img src="assets/items/toy-01.webp" alt="" class="hp-toy"></div><figcaption><b>Tap the bench</b> to hammer toys together. Each finished toy earns cookies and cheer.</figcaption></figure>
+      <figure class="howto-card"><div class="howto-pic pic-2"><img src="assets/ui/cookie.webp" alt="" class="hp-cookie"><img src="assets/sprites/elf-helper.webp" alt="" class="hp-elf"><img src="assets/items/hammer-2.webp" alt="" class="hp-ham"></div><figcaption><b>Spend cookies</b> on better hammers and helpers who build for you, even while you're away.</figcaption></figure>
+      <figure class="howto-card"><div class="howto-pic pic-3"><img src="assets/ui/cheer.webp" alt="" class="hp-cheer"><img src="assets/ui/santa-portrait.webp" alt="" class="hp-santa"></div><figcaption><b>Earn cheer</b> to get promoted. Every new rank unlocks a new toy, all the way to Chief Toy Officer.</figcaption></figure>
+    </div>
+    <p class="howto-keys">Keys: Space or Enter hammers, 1–0 pick a toy, P pauses, M mutes.</p>
+    <button id="btn-howto-back" class="btn-big">Got it</button>
+  </div>
+</section>
+
+<!-- The workshop -->
+<section id="game" class="screen" data-screen="workshop" hidden data-tab="toys">
+  <header class="topbar">
+    <div class="rank-row">
+      <h2 id="rank-title" class="rank-title">Assistant Junior Toy Maker</h2>
+      <div class="top-buttons">
+        <button id="btn-sound" class="round-btn" aria-label="Mute"><svg><use href="#i-sound"/></svg></button>
+        <button id="btn-pause" class="round-btn" aria-label="Pause and settings"><svg><use href="#i-gear"/></svg></button>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="cookies"><img src="assets/ui/cookie.webp" alt="" class="ico"><span id="cookie-count">0</span></div>
+      <div class="cheer-bar" id="cheer-bar"><img src="assets/ui/cheer.webp" alt="" class="ico cheer-ico"><div class="cheer-track"><div class="cheer-fill" id="cheer-fill"></div></div><span class="cheer-label" id="cheer-label"></span></div>
+      <div class="rates" id="rates">1/tap · 0/s</div>
+    </div>
+  </header>
+
+  <aside class="shelf" id="shelf" aria-label="Toys"></aside>
+
+  <main class="stage-col">
+    <div class="stage-wrap">
+      <div class="stage" id="stage">
+        <canvas id="stage-canvas"></canvas>
+        <div class="banner" id="banner" hidden></div>
+        <div class="tap-hint" id="tap-hint" hidden><svg class="hand"><use href="#i-hand"/></svg><span>Tap the bench!</span></div>
+        <div class="rush-ring" id="rush-ring" hidden><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" class="rr-bg"/><circle cx="20" cy="20" r="16" class="rr-fg" id="rush-arc"/></svg><span>×5</span></div>
+      </div>
+      <div class="toy-strip">
+        <span class="toy-name" id="toy-name">Wooden Tractor</span>
+        <div class="work-bar" id="work-bar"><div class="work-fill" id="work-fill"></div></div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="shop" id="shop" aria-label="Shop">
+    <section class="shop-sec" data-sec="helpers"><h3>Helpers</h3><div class="shop-list" id="list-helpers"></div></section>
+    <section class="shop-sec" data-sec="hammers"><h3>Hammers</h3><div class="shop-list" id="list-hammers"></div></section>
+    <section class="shop-sec" data-sec="upgrades"><h3>Upgrades</h3><div class="shop-list" id="list-upgrades"></div></section>
+  </aside>
+
+  <nav class="tabbar" id="tabbar">
+    <button data-tab="toys">Toys</button>
+    <button data-tab="helpers">Helpers</button>
+    <button data-tab="hammers">Hammers</button>
+    <button data-tab="upgrades">Upgrades</button>
+  </nav>
+</section>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<!-- Cards: promotion, welcome back, Christmas Eve -->
+<div id="card-layer" class="overlay" hidden>
+  <div class="card" id="card" role="dialog" aria-modal="true" aria-labelledby="card-title">
+    <div class="ribbon"></div>
+    <div class="card-body" id="card-body"></div>
+    <button class="btn-big card-btn" id="card-btn">Back to work!</button>
+  </div>
+  <canvas id="confetti"></canvas>
+</div>
+
+<!-- Pause and settings -->
+<div id="pause" class="overlay" hidden>
+  <div class="card pause-card" role="dialog" aria-modal="true" aria-labelledby="pause-title">
+    <div class="ribbon"></div>
+    <h2 id="pause-title">Paused</h2>
+    <p class="pause-note">Your helpers keep working.</p>
+    <div class="settings">
+      <button class="toggle" id="tg-music" aria-pressed="true">Music: on</button>
+      <button class="toggle" id="tg-sfx" aria-pressed="true">Sound: on</button>
+    </div>
+    <dl class="stats" id="stats"></dl>
+    <div class="pause-buttons">
+      <button class="btn-big" id="btn-resume">Back to work!</button>
+      <button class="btn-quiet" id="btn-report" hidden>Report a bug</button>
+      <button class="btn-quiet" id="btn-credits">Credits</button>
+      <button class="btn-quiet danger" id="btn-reset">Reset progress</button>
+    </div>
+    <p class="keys-note" id="keys-note">Space or Enter: hammer · 1–0: pick a toy · P: pause · M: mute</p>
+    <div class="credits" id="credits" hidden>
+      <h2>Credits</h2>
+      <p><b>Chief Toy Officer</b>: made by Rich Conlan, from the 2017 Xmas Clicker and Sean's elf prototype.</p>
+      <p>Made with gamegen: art by imagegen2, nanogen and anim8gen; music and sounds by audiogen.</p>
+      <p>Fonts: Mountains of Christmas by Tart Workshop (Apache License 2.0) and Nunito by Vernon Adams and others (SIL Open Font License). Licenses are in the fonts folder.</p>
+      <button class="btn-quiet" id="btn-credits-close">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Christmas Eve -->
+<div id="eve" class="overlay eve" hidden></div>
+
+<gh-feedback id="report" trigger="none" repo="zeveck/xmas-clicker" template="bug.yml" heading="Report a bug" types="bug,feature" theme="light" color="#9e2a2b"></gh-feedback>
+<script type="module" src="vendor/gh-feedback.js"></script>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

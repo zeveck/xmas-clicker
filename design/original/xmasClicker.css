@@ -1,0 +1,130 @@
+html, body {
+    background-color: #d7dee8;
+    font-family: 'Mountains of Christmas', Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+    width: 100%;
+}
+
+.selected-tool {
+    cursor: pointer;
+    padding-right: 40px;
+    position: relative;
+    width: 200px;
+    z-index: 2;
+}
+
+.selected-tool-image {
+    width: 100%;
+}
+
+.floating-score-bonus {
+    color: #eee;
+    cursor: pointer;
+    font-size: 24px;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    position: absolute;
+}
+
+.score-display {
+    color: #444;
+    font-size: 10px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.work-progress,
+.work-progress .progress-text {
+    max-width: 300px;
+    width: 300px;
+}
+
+.work-progress .progress-bar {
+    max-width: 300px;
+}
+
+.prestige-progress,
+.prestige-progress .progress-text {
+    max-width: 540px;
+    width: 540px;
+}
+
+.prestige-progress .progress-bar {
+    max-width: 540px;
+}
+
+.toybox,
+.toolbox {
+    border: 5px solid #173305;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.toybox {
+    padding-bottom: 5px;
+}
+
+.toolbox {
+    position: absolute;
+    left: 338px;
+    top: 74px;
+}
+
+.selected-toy {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    height: 80px;
+    left: 159px;
+    overflow: hidden;
+    position: absolute;
+    top: 168px;
+    width: 80px;
+    z-index: 1;
+}
+
+.selected-toy .progress-overlay {
+    background: rgba(200, 200, 200, 0.7);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.selected-toy-image {
+    height: 100%;
+    width: 100%;
+}
+
+.prestige-display {
+    font-size: 50px;
+    text-shadow: 1px 1px 2px black;
+    width: 540px;
+}
+
+.prestige-display .prestige-title {
+    position: relative;
+    text-align: center;
+    top: -20px;
+}
+
+.prestige-display .raw-prestige {
+    font-family: 'Spirax', Arial, sans-serif;
+    font-size: 48px;
+    position: relative;
+    top: -29px;
+    left: 173px;
+}
+
+.present-pile {
+    background: no-repeat center/75% url('img/xmas-tree.png');
+    height: 563px;
+    left: 507px;
+    opacity: 0.5;
+    pointer-events: none;
+    position: absolute;
+    top: 40px;
+    width: 536px;
+}

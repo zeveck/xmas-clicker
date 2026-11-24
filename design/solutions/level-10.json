@@ -1,0 +1,20 @@
+{
+ "rank": 10,
+ "player": "tools/play-rank.js",
+ "start": "window.__game.goToLevel(10) (the balance script's save at rank 10)",
+ "until": "the Christmas Eve card",
+ "policy": "real taps on the toy about 8-10 a second; every 10 taps a real click on the shop item with the most work per cookie; real clicks on shooting stars; card buttons after their 1 s guard",
+ "last_run": {
+  "from": 10,
+  "to": 11,
+  "rank": 10,
+  "screen": "eve-card",
+  "levelComplete": true,
+  "seconds": 27,
+  "taps": 97,
+  "buys": 0,
+  "stars": 0,
+  "cardsClosed": 0,
+  "cookies": 129812
+ }
+}

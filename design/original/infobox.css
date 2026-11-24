@@ -1,0 +1,19 @@
+.infobox {
+    background: green;
+    border: 3px solid darkgreen;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px #0f0f0f;
+    display: none;
+    font-size: 30px;
+    left: 100px;
+    opacity: 0.95;
+    overflow: hidden;
+    padding: 5px;
+    position: absolute;
+    top: 100px;
+    z-index: 100;
+}
+
+.infobox.show {
+    display: block;
+}

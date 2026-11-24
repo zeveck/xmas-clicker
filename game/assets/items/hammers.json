@@ -1,0 +1,78 @@
+{
+  "hammer-1": {
+    "grip": [
+      255,
+      435
+    ],
+    "head": [
+      249,
+      106
+    ],
+    "handleBottom": [
+      256,
+      491
+    ],
+    "headBottom": 179,
+    "size": [
+      512,
+      512
+    ]
+  },
+  "hammer-2": {
+    "grip": [
+      255,
+      435
+    ],
+    "head": [
+      250,
+      80
+    ],
+    "handleBottom": [
+      255,
+      491
+    ],
+    "headBottom": 119,
+    "size": [
+      512,
+      512
+    ]
+  },
+  "hammer-3": {
+    "grip": [
+      256,
+      435
+    ],
+    "head": [
+      255,
+      86
+    ],
+    "handleBottom": [
+      256,
+      491
+    ],
+    "headBottom": 137,
+    "size": [
+      512,
+      512
+    ]
+  },
+  "hammer-4": {
+    "grip": [
+      255,
+      435
+    ],
+    "head": [
+      253,
+      119
+    ],
+    "handleBottom": [
+      255,
+      491
+    ],
+    "headBottom": 191,
+    "size": [
+      512,
+      512
+    ]
+  }
+}

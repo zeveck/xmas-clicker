@@ -1,0 +1,80 @@
+.item {
+    border: 5px solid #173305;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    height: 80px;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+    width: 80px;
+}
+
+.item.selected {
+    background: rgba(255, 255, 255, 0.7);
+    border: 5px solid #308505;
+}
+
+.item-image {
+    height: 100%;
+    width: 100%;
+}
+
+.item .locked-overlay,
+.item .progress-overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.item .locked-overlay {
+    background: #555;
+    display: block;
+    opacity: 0.5;
+}
+
+.item.unlocked .locked-overlay {
+    display: none;
+}
+
+.item .lock-image {
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    height: 50px;
+    width: 50px;
+    opacity: 0.7;
+}
+
+.item.unlock-effect .locked-overlay {
+    border-radius: 10px;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: border-radius 1s, opacity 3s, transform 2s;
+}
+
+.item.emphasize-lock .lock-image {
+    opacity: 1;
+    transform: scale(1.5);
+    transition: opacity 2s, transform 2s;
+}
+
+.item.emphasize-lock .locked-overlay {
+    opacity: 0.8;
+    transition: opacity 2s;
+}
+
+.item.item-with-count {
+    margin-bottom: 30px;
+}
+
+.item .item-count {
+    font-family: 'Spirax', Arial, sans-serif;
+    font-size: 32px;
+    left: 6px;
+    position: absolute;
+    text-shadow: 1px 1px 2px black;
+    top: 92px;
+}

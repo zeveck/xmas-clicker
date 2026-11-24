@@ -1,0 +1,20 @@
+{
+ "rank": 8,
+ "player": "tools/play-rank.js",
+ "start": "window.__game.goToLevel(8) (the balance script's save at rank 8)",
+ "until": "rank 9",
+ "policy": "real taps on the toy about 8-10 a second; every 10 taps a real click on the shop item with the most work per cookie; real clicks on shooting stars; card buttons after their 1 s guard",
+ "last_run": {
+  "from": 8,
+  "to": 9,
+  "rank": 9,
+  "screen": "workshop>promotion",
+  "levelComplete": true,
+  "seconds": 146,
+  "taps": 1205,
+  "buys": 26,
+  "stars": 2,
+  "cardsClosed": 0,
+  "cookies": 51771
+ }
+}

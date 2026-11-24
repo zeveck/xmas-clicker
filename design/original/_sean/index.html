@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109162704-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-109162704-1');
+		</script>
+	<style> body { border: outset 5px;} </style>
+	<h3>Toys: <span id="money">0</span>  Toys Per Second: <span id="moneyPerSecond">0</span><br /> <button onclick="moneyClick()">Build</button></h3>
+  </head>
+  <body>
+	<h3> Toys Earnings</h3>
+	<p><button onclick="buyClickUpgrade()">Buy Click Upgrade</button> Click Upgrade: <span id="clickUpgradeCost">100</span> </p>
+	<p><button onclick="buyBeginner()">Hire Elf</button> Cost: <span id="beginnerCost">10</span></p>
+	<p><button onclick="buyHammer()">Get Elf Hammers</button> Cost: <span id="hammerCost">20</span></p>
+	<img src="elf-workshop-clipart-1.jpg">
+	
+  </body>
+</html>
+
+
+<script>
+var money = 0;
+var beginner = 0;
+var hammer = 0;
+var mpc = 1;
+var moneyPerSecond = 0;
+var realClicks = 0;
+var clickUpgradeNextCost = 100;
+var elfNextCost = 10;
+var hammerNextCost = 20;
+
+function moneyClick(){
+money += mpc;
+realClicks += 1;
+document.getElementById("money").innerHTML = prettify(money);
+}
+
+function mps(){
+	money += moneyPerSecond;
+	document.getElementById('money').innerHTML = prettify(money);
+	document.getElementById('moneyPerSecond').innerHTML = prettify(moneyPerSecond);
+}
+
+function buyClickUpgrade(){
+	var clickUpgradeCost = clickUpgradeNextCost;
+	if (money >= clickUpgradeCost)
+		{
+		mpc++;
+		money -= clickUpgradeCost;
+		document.getElementById('clickUpgradeCost').innerHTML = clickUpgradeCost;
+		clickUpgradeNextCost = Math.floor(10 * Math.pow(3.2, mpc));
+		document.getElementById('clickUpgradeCost').innerHTML = clickUpgradeNextCost;
+	}
+	//
+	//
+}
+
+function buyBeginner(){
+	var beginnerCost = elfNextCost;
+	if (money >= beginnerCost)
+		{
+		beginner += 0.1;
+		moneyPerSecond += 0.1;
+		money -= beginnerCost;
+		document.getElementById('money').innerHTML = prettify(money);
+		document.getElementById('moneyPerSecond').innerHTML = prettify(moneyPerSecond);
+		elfNextCost = Math.floor(10 * Math.pow(3.2, beginner));
+	document.getElementById('beginnerCost').innerHTML = prettify(elfNextCost);
+	}
+	//var elfNextCost = Math.floor(10 * Math.pow(3.2, beginner));
+	//document.getElementById('beginnerCost').innerHTML = prettify(elfNextCost);
+}
+
+function buyHammer(){
+	var hammerCost = hammerNextCost;
+	if (money >= hammerCost)
+		{
+		hammer += 0.2;
+		moneyPerSecond += 0.5;
+		money -= hammerCost;
+		document.getElementById('money').innerHTML = prettify(money);
+		document.getElementById('moneyPerSecond').innerHTML = prettify(moneyPerSecond);
+		hammerNextCost = Math.floor(20 * Math.pow(5.2, hammer));
+	document.getElementById('hammerCost').innerHTML = prettify(hammerNextCost);
+	}
+	//var elfNextCost = Math.floor(10 * Math.pow(3.2, beginner));
+	//document.getElementById('beginnerCost').innerHTML = prettify(elfNextCost);
+}
+
+
+window.setInterval(mps, 1000);
+
+
+function prettify(input){
+	var output = Math.round(input * 1000000)/ 1000000;
+	return output;
+
+}
+
+var hundredClicks = 100;
+
+function clicks(){
+	if(realClicks == hundredClicks){
+		alert("Congrats on 100 clicks");
+	}
+}
+
+window.setInterval(clicks, 1);
+</script>
