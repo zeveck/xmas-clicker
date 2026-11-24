@@ -39,4 +39,4 @@
 - [x] Final review: bug hunter (3 must-fix: away time lost on the title, finale lost on reload, pause over cards; all fixed) and playtester (no must-fix; best-buy hints added, tab dots, labels)
 - [x] Polish pass: 1 must-fix (800x600 window: stage covered the shop; now side-by-side) and 9 smaller, all fixed and rechecked at every size
 - [x] Wrap up: README, previews, Pages workflow, art sheet
-- [ ] Publish: everything ready and committed; stopped before creating the repo because a scratch path (/tmp/...) is in REVIEW_LOG.md in earlier commits (removed from the current file). Waiting for the person: scrub it from history, or push as is.
+- [ ] Publish: main is a fresh one-commit branch (the planning run's note had a temp path; full history kept locally on local-history, never pushed)
