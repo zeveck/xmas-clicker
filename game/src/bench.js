@@ -29,7 +29,6 @@ const files = [
   'sprites/elf-helper', 'sprites/toy-machine', 'sprites/reindeer-team',
   ...[0, 1, 2, 3].map((i) => `sprites/pip-swing/frame-${i}`),
   ...TOYS.map((t) => 'items/' + t.id), ...HAMMERS.map((h) => `items/${h.id}-hand`),
-  ...[1, 2, 3, 4, 5, 6].map((i) => `items/present-${i}`),
 ];
 function loadImg(p) {
   return new Promise((res) => { const im = new Image(); im.onload = () => { IMG[p] = im; res(); }; im.onerror = () => res(); im.src = `assets/${p}.webp`; });
@@ -115,7 +114,7 @@ function layout(toyIdx) {
   return L;
 }
 
-// ---- The present pile: 40 fixed slots, filling at 2^(n/4) presents ----
+// ---- The pile under the tree: 40 fixed spots, each showing a toy you made ----
 function pileSlots() {
   const slots = [];
   const { x0, x1, y0, y1 } = MAP.pile;
@@ -172,7 +171,7 @@ export function toyDone(count, toyIdx) {
   const now = performance.now();
   A.popAt = now; A.popCount = count;
   if (count === 1) A.spinAt = now;
-  if (A.flying.length < 3) A.flying.push({ t: now, img: 1 + Math.floor(Math.random() * 6) });
+  if (A.flying.length < 3) A.flying.push({ t: now, toy: toyIdx });
 }
 
 // ---- Star ----
@@ -254,12 +253,14 @@ function drawTreeStar(L, view, now) {
   }
 }
 
-function drawPile(L, filled, liftF) {
-  for (let i = 0; i < filled; i++) {
-    const s = L.slots[i], p = 'items/present-' + s.img, im = IMG[p];
+function drawPile(L, filled, liftF, toys = []) {
+  // Higher rows sit further back in the heap: draw them first.
+  const order = [...Array(filled).keys()].sort((a, b) => L.slots[b].r - L.slots[a].r || a - b);
+  for (const i of order) {
+    const s = L.slots[i], t = toys[i] ?? 0, p = 'items/' + TOYS[t].id, im = IMG[p];
     if (!im) continue;
-    const sz = X(s.size);
-    let x = X(s.cx) - sz / 2, y = Y(s.foot) - sz * 0.95;
+    const sz = X(s.size) * 1.3;
+    let x = X(s.cx) - sz / 2, y = Y(s.foot) - sz * 0.93;
     if (liftF != null) {
       const d = Math.max(0, Math.min(1, liftF * 1.6 - (i / 40) * 0.6));
       if (d >= 1) continue;
@@ -326,7 +327,8 @@ function drawPip(L, hammer, now) {
   if (!pv || !him || !hj) return;
   const k = b.w / 512;
   const fx = b.x + pv.fist[0] * k, fy = b.y + pv.fist[1] * k;
-  let ang = fr === 2 ? L.strikeAngle : pv.angle;
+  // The strike aims at the toy's top; the follow-through carries on just a little past it.
+  let ang = fr === 2 ? L.strikeAngle : fr === 3 ? L.strikeAngle + 8 : pv.angle;
   // The spin after a finished toy: one full turn while idle.
   const sp = (now - A.spinAt) / 380;
   if (sp >= 0 && sp < 1 && fr === 0) ang += 360 * (1 - (1 - sp) ** 2);
@@ -369,8 +371,8 @@ function drawFlying(L, now, filled) {
     const dest = L.slots[Math.min(39, Math.max(0, filled - 1))] || L.slots[0];
     const x0 = L.toyBox.cx, y0 = L.toyBox.top, x1 = X(dest.cx), y1 = Y(dest.foot) - X(dest.size) / 2;
     const x = x0 + (x1 - x0) * k, y = y0 + (y1 - y0) * k - Math.sin(k * Math.PI) * Y(16);
-    const sz = X(4.5) * (1 - 0.2 * k), im = IMG['items/present-' + f.img];
-    if (im) { g.save(); g.translate(x, y); g.rotate(k * 4); g.drawImage(im, -sz / 2, -sz / 2, sz, sz); g.restore(); }
+    const sz = X(6.5) * (1 - 0.15 * k), im = IMG['items/' + TOYS[f.toy].id];
+    if (im) { g.save(); g.translate(x, y); g.rotate(Math.sin(k * Math.PI) * 0.6); g.drawImage(im, -sz / 2, -sz / 2, sz, sz); g.restore(); }
   }
 }
 
@@ -440,7 +442,7 @@ export function draw(view) {
   drawTreeStar(L, view, now);
   drawImg('bg/bench', L.bench);
   const filled = slotsFilled(view.pile);
-  if (!eve || eve.phase !== 'lift') drawPile(L, filled, null);
+  if (!eve || eve.phase !== 'lift') drawPile(L, filled, null, view.pileToys);
   if (view.pile > 0 && filled >= 40 && !eve) tag('×' + fmtShort(view.pile), X(84), Y(81));
   drawToy(L, view.toy, now);
   drawImg('bg/stool', L.stool);
@@ -449,7 +451,7 @@ export function draw(view) {
   drawFlying(L, now, filled);
   if (view.rush) vignette(0.35 + 0.1 * Math.sin(now / 200));
   if (eve && eve.phase === 'lights') { g.fillStyle = `rgba(10,12,40,${Math.min(0.55, eve.t * 0.4)})`; g.fillRect(0, 0, W, H); drawLights(L, now, view); drawTreeStar(L, view, now); }
-  if (eve && eve.phase === 'lift') { g.fillStyle = 'rgba(10,12,40,0.55)'; g.fillRect(0, 0, W, H); drawLights(L, now, view); drawTreeStar(L, view, now); drawPile(L, filled, eve.t); }
+  if (eve && eve.phase === 'lift') { g.fillStyle = 'rgba(10,12,40,0.55)'; g.fillRect(0, 0, W, H); drawLights(L, now, view); drawTreeStar(L, view, now); drawPile(L, filled, eve.t, view.pileToys); }
   g.restore();
 }
 const fmtShort = (n) => (n >= 1e6 ? (n / 1e6).toFixed(1) + 'M' : n >= 1e4 ? Math.floor(n / 1000) + 'K' : String(n));

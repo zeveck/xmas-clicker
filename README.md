@@ -45,7 +45,7 @@ Chief Toy Officer was made by [Claude Code](https://claude.com/claude-code) with
 
 gamegen studied the 2017 original, kept its toys, its ten rank titles and its
 zero-padded counters, finished what it was reaching for (hammers you can buy,
-toys that earn something, Sean's elves, a tree and a present pile that fill
+toys that earn something, Sean Dailey's elves, a tree and a pile of toys that fill
 up), and wrote a plan, which was shared on the plans page and approved. Then,
 to build it:
 
@@ -78,5 +78,5 @@ then open http://localhost:8000.
 
 ## Credits
 
-- An idea by Rich Conlan, from the 2017 Xmas Clicker and Sean's elf prototype.
+- An idea by Rich Conlan, from the 2017 Xmas Clicker and Sean Dailey's elf prototype.
 - Fonts: [Mountains of Christmas](https://fonts.google.com/specimen/Mountains+of+Christmas) by Tart Workshop (Apache License 2.0) and [Nunito](https://fonts.google.com/specimen/Nunito) by Vernon Adams and others (SIL Open Font License 1.1). Their licenses are in `game/fonts/`.

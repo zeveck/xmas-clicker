@@ -62,7 +62,7 @@ export function newState() {
     cookies: 0, cheer: 0, rank: 1, toy: 0,
     progress: TOYS.map(() => 0), made: TOYS.map(() => 0),
     hammer: 0, helpers: HELPERS.map(() => 0), upgrades: {},
-    pile: 0, phoneDone: false, eveSeen: false, phoneTask: false,
+    pile: 0, pileToys: [], phoneDone: false, eveSeen: false, phoneTask: false,
     stats: { taps: 0, toys: 0, stars: 0, played: 0, cookies: 0 },
     settings: { music: true, sfx: true, muted: false },
     leftAt: 0, started: false, firstElf: false, tab: 'toys',
@@ -147,6 +147,7 @@ export function addWork(s, tap, crew, opts = {}) {
     if (opts.cheerCap != null) ch = Math.max(0, Math.min(ch, opts.cheerCap - s.cheer));
     s.cookies += ck; s.cheer += ch; s.made[i] += made;
     s.stats.toys += made; s.stats.cookies += ck; s.pile += made;
+    fillPile(s, i);
     res.cookies = ck; res.cheer = ch;
     if (firstPhoneNow) s.phoneTask = false;
   }
@@ -176,6 +177,51 @@ export function away(s, seconds) {
   const before = { cookies: s.cookies, made: s.made[s.toy] };
   const r = addWork(s, 0, crewWps(s) * eff, { away: true, cheerCap: next2 });
   return { seconds, effective: eff, long, toy: s.toy, made: s.made[s.toy] - before.made, cookies: s.cookies - before.cookies, promotions: r.promotions };
+}
+
+/** The pile under the tree: 40 drawn spots, spot n filling at 2^(n/4) toys made. */
+export const PILE_SLOTS = 40;
+export const pileSpots = (pile) => { let n = 0; while (n < PILE_SLOTS && pile >= 2 ** ((n + 1) / 4)) n++; return n; };
+/** How many spots each kind of toy should have: shares by the cheer it has earned, at least one each. */
+function pileTargets(s, n) {
+  const w = TOYS.map((t, i) => s.made[i] * t.cheer), total = w.reduce((a, b) => a + b, 0) || 1;
+  return w.map((x, i) => (s.made[i] > 0 ? Math.max(1, (x / total) * n) : 0));
+}
+/**
+ * The pile under the tree shows the toys you made. A new spot shows the toy that filled it;
+ * after that, a toy that has less than its share can take over one spot from the toy with the most
+ * over its share, so newer toys show up and every kind you've made keeps a place.
+ */
+export function fillPile(s, toy) {
+  const n = pileSpots(s.pile);
+  while (s.pileToys.length < n) s.pileToys.push(toy);
+  if (n < 4) return;
+  const tgt = pileTargets(s, n), cur = TOYS.map(() => 0);
+  for (const t of s.pileToys) cur[t]++;
+  if (cur[toy] + 0.5 > tgt[toy]) return;
+  let worst = -1, over = 0.5;
+  for (let k = 0; k < TOYS.length; k++) if (k !== toy && cur[k] - tgt[k] > over && cur[k] > 1) { over = cur[k] - tgt[k]; worst = k; }
+  if (worst < 0) return;
+  const spots = []; s.pileToys.forEach((t, i) => t === worst && spots.push(i));
+  s.pileToys[spots[(s.stats.toys * 7) % spots.length]] = toy;
+}
+/** For a save from before toys were remembered: share the spots out, mixed through the heap. */
+export function derivePile(s) {
+  const n = pileSpots(s.pile);
+  if (s.pileToys.length >= n) { s.pileToys.length = n; return; }
+  const tgt = pileTargets(s, n), counts = tgt.map((x) => Math.floor(x));
+  let left = n - counts.reduce((a, b) => a + b, 0);
+  const frac = tgt.map((x, i) => [x - Math.floor(x), i]).sort((a, b) => b[0] - a[0]);
+  for (let k = 0; left > 0 && k < frac.length; k++) if (tgt[frac[k][1]] > 0) { counts[frac[k][1]]++; left--; }
+  while (left > 0) { counts[0]++; left--; }
+  while (counts.reduce((a, b) => a + b, 0) > n) counts[counts.indexOf(Math.max(...counts))]--;
+  const list = []; counts.forEach((c, i) => { for (let k = 0; k < c; k++) list.push(i); });
+  const out = Array(n);
+  const gcd = (a, b) => (b ? gcd(b, a % b) : a);
+  const step = [17, 13, 11, 7, 5, 3, 1].find((x) => gcd(x, n) === 1);
+  list.forEach((t, k) => { out[(k * step) % n] = t; });
+  for (let k = 0; k < n; k++) if (out[k] == null) out[k] = list[k % list.length] ?? 0;
+  s.pileToys = out;
 }
 
 /** Cheer-bar fraction toward the next rank (1 at the top). */
@@ -223,5 +269,7 @@ export function migrate(raw) {
   s.stats = { ...newState().stats, ...(raw.stats || {}) };
   s.settings = { ...newState().settings, ...(raw.settings || {}) };
   s.pile = num(s.pile);
+  s.pileToys = Array.isArray(raw.pileToys) ? raw.pileToys.filter((t) => Number.isInteger(t) && t >= 0 && t < TOYS.length).slice(0, PILE_SLOTS) : [];
+  derivePile(s);
   return s;
 }

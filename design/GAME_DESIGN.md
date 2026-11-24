@@ -25,7 +25,7 @@ Officer and you build the last toy before the sleigh leaves on Christmas Eve.
   - The new name is **Chief Toy Officer**. The game never calls itself a remake of Xmas Clicker (changed on request, 2026-11-24); the credits still name the 2017 original.
   - Three names change for originality: **Thunder Mallet** (was Thor's Hammer), **Pixel Play** console (was Super Game System), **Doodle Dial** (was Sketch An Etch).
   - The original's toy "value" becomes **cookies**, the money you spend.
-  - Sean's prototype supplies the helpers: elves, elf hammers, and click upgrades (the hammers).
+  - Sean Dailey's prototype supplies the helpers: elves, elf hammers, and click upgrades (the hammers).
   - All art is new. The ctrl-click cheat is gone.
 
 ## The player's fantasy
@@ -335,7 +335,7 @@ work past 90% isn't used. Later Smartphones work like any toy.
      moon.
   4. `eve-card`: "Merry Christmas, Chief Toy Officer!", your stats, the
      credits, and a "Keep building" button.
-- **Credits:** made by Rich Conlan, from Xmas Clicker (2017) and Sean's
+- **Credits:** made by Rich Conlan, from Xmas Clicker (2017) and Sean Dailey's
   elves; made with gamegen; the fonts and their licenses.
 
 ## Juice
@@ -352,14 +352,14 @@ Must-haves:
 - On every finished toy:
   - it pops up with a bounce, and Pip's hammer spins once (as in the
     original)
-  - it wraps into a present: a quick flash of paper
-  - the present arcs into the pile under the tree
+  - a quick flash of light
+  - the toy itself arcs into the pile under the tree (changed on request: the pile shows the toys you made, not wrapped presents)
   - cookies tick up, with a sound
 - **Many toys at once:** when one update finishes more than one toy, it
-  shows one pop with "×75", one present arc and one set of sounds; no
-  hammer spin. At most 3 presents are in the air at once.
-- **The pile:** at most 40 presents are drawn, in fixed slots under the
-  tree. Slot n (1–40) fills when the pile reaches 2^(n/4) presents, so it
+  shows one pop with "×75", one toy arc and one set of sounds; no
+  hammer spin. At most 3 toys are in the air at once.
+- **The pile:** at most 40 toys are drawn, in fixed slots under the
+  tree. Each slot shows the toy whose finishing filled it (saved as `pileToys`; older saves fill it in from the toy counts), so the pile is a record of what you built. Slot n (1–40) fills when the pile reaches 2^(n/4) presents, so it
   grows fast at first and is nearly full (about 39 slots, ~990 presents)
   at Chief Toy Officer. Past 40 slots a "×N" tag shows the count. After
   Christmas Eve the pile starts again from empty.

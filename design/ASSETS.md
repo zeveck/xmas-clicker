@@ -40,3 +40,5 @@ Running total: about $0.76 of $20 (mockups: $0.76 of $5).
 | sfx (17) + Santa voice | game/assets/audio/sfx/*.mp3 | audiogen sfx / voice | 21 | $2.30 |
 
 Build run total: about $7.0. With the shared design's pictures ($0.76): **about $7.8 of $30.**
+
+Change 6 (2026-11-24): hammer-2 (both files) mirrored in Pillow so its flat face leads; no new spending. The six present pictures are no longer drawn in the game (the pile shows the toys themselves) but stay on the art sheet.

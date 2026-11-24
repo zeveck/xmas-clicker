@@ -432,7 +432,7 @@ function showEveCard() {
   $('card-body').innerHTML = `<h2 id="card-title">Merry Christmas, Chief Toy Officer!</h2>
     <p>The sleigh is loaded and on its way. Every toy you built is going to a home tonight.</p>
     <dl class="stats">${statsHTML()}</dl>
-    <p class="credit-line">Made by Rich Conlan, from the 2017 Xmas Clicker and Sean's elf prototype. Made with gamegen.</p>`;
+    <p class="credit-line">Made by Rich Conlan, from the 2017 Xmas Clicker and Sean Dailey's elf prototype. Made with gamegen.</p>`;
   $('card').classList.add('eve-card');
   $('card-btn').textContent = 'Keep building';
   $('card-layer').hidden = false;
@@ -446,6 +446,7 @@ function endEve() {
   $('game').classList.remove('eve-on');
   $('card').classList.remove('eve-card');
   S.pile = 0;
+  S.pileToys = [];
   S.eveSeen = true;
   refreshAll();
 }
@@ -644,7 +645,7 @@ function frame(now) {
     const et = eve ? (now - eve.start) / 1000 : 0;
     const lit = eve?.phase === 'lights' ? Math.max(0, Math.floor((et - 0.6) / 0.5) + 1) : S.eveSeen || eve ? 99 : 0;
     Bench.draw({
-      toy: S.toy, hammer: S.hammer, helpers: S.helpers, pile: S.pile,
+      toy: S.toy, hammer: S.hammer, helpers: S.helpers, pile: S.pile, pileToys: S.pileToys,
       strands: S.eveSeen || eve ? 9 : S.rank - 1, lightsLit: lit,
       starLit: S.eveSeen || (eve && (eve.phase !== 'lights' || et > 5.1)),
       star: star ? star.t / R.STAR_DRIFT : null, rush: rushLeft > 0,
@@ -713,7 +714,7 @@ window.__game = {
     cookies: Math.floor(S.cookies), cheer: Math.floor(S.cheer), toy: S.toy, toyName: TOYS[S.toy].name,
     progress: Math.floor(S.progress[S.toy]), made: S.made.slice(), helpers: S.helpers.slice(), hammer: S.hammer,
     upgrades: Object.keys(S.upgrades), rush: Math.round(rushLeft * 10) / 10, star: star ? Math.round(star.t * 10) / 10 : null,
-    taps: S.stats.taps, paused, card: card?.type || null, queued: cards.length, pile: S.pile, phoneDone: S.phoneDone,
+    taps: S.stats.taps, paused, card: card?.type || null, queued: cards.length, pile: S.pile, pileToys: S.pileToys.length, phoneDone: S.phoneDone,
     levelComplete: S.rank > levelStart || (levelStart >= 10 && eveStarted), gameWon: S.eveSeen,
   }),
   frames: () => frameLog,
