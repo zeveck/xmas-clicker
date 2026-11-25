@@ -80,3 +80,18 @@ Sim: `tools/balance-draft.mjs` + `tools/balance-draft-params.json` (updated in p
 ## Decision
 
 Converged after round 2 (the --rounds limit): every should-fix was fixed or answered, and none was must-fix. Letters to Santa were considered and left out (below the bar).
+
+## Change review: elf limit (issue #1, "Elves"), 2026-11-25
+
+One round, player and builder. Balance: reference Christmas Eve 26:25 (26:23 before); elves-first player 28:47 (39:32 before); all checks pass, plus a new check that the reference player's saves stay within the limits.
+
+| Finding | From | Severity | Outcome |
+|---|---|---|---|
+| "Bench" already means Pip's workbench; keep it off screen | player | should-fix | Fixed: "Workshop full: more elves at …" |
+| Say the new limit on the promotion card | player | should-fix | Fixed: "Room for 25 elves" / "No limit on elves" in the unlocks |
+| A full Elf card must not light a tab dot or look unaffordable | player | should-fix | Fixed: own "full" state, calm wooden "Full" plate, never a dot or ribbon |
+| Saves over the new limit | player, builder | should-fix | Fixed: elves are kept; "30 hired · Workshop full"; the rank named is the first with room for that many |
+| The shop card had no "full" state; render key | builder | should-fix | Fixed: state, price, label and key include "full" |
+| No toast for full; design wording on "of N" | builder | nice | Fixed |
+| What-if runs of the balance script overwrite the play-test saves | builder | nice | Fixed: they don't write saves |
+| Numbers feel right; setRank can exceed the limit (debug only) | player, builder | nice | Kept |

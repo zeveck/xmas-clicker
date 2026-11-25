@@ -107,6 +107,7 @@ function buyItem(kind, i, el) {
     if (r.reason === 'owned') return;
     Audio.play('nope'); shake(el);
     if (r.reason === 'cookies') toast(`Needs ${format(r.cost)} cookies`);
+    else if (r.reason === 'full') { const m = R.moreElvesAt(S); toast(m ? `Workshop full: more elves at ${RANKS[m - 1].title}` : 'Workshop full'); }
     else if (r.reason === 'locked') toast(`Unlocks at ${RANKS[itemRank(kind, i) - 1].title}`);
     return;
   }
@@ -200,7 +201,15 @@ function refresh() {
     const afford = S.cookies >= x.cost;
     const glow = it.kind === 'helper' && it.i === 0 && S.helpers[0] === 0 && S.cookies >= 15;
     let eff = '';
-    if (it.kind === 'helper') eff = `+${format(R.helperWps(S, it.i))}\u00a0work/s\u00a0each` + (S.helpers[it.i] ? ` · ${S.helpers[it.i]}\u00a0hired` : '');
+    if (it.kind === 'helper') {
+      const n = S.helpers[it.i], cap = it.i === 0 ? R.elfCap(S) : Infinity;
+      if (x.full) {
+        const r = R.moreElvesAt(S);
+        eff = `${n}\u00a0hired · Workshop full` + (r ? `: more elves at ${RANKS[r - 1].title}` : '');
+      } else {
+        eff = `+${format(R.helperWps(S, it.i))}\u00a0work/s\u00a0each` + (cap < Infinity ? ` · ${n}\u00a0of\u00a0${cap}\u00a0hired` : n ? ` · ${n}\u00a0hired` : '');
+      }
+    }
     else if (it.kind === 'hammer') {
       const w = R.hammerWork(S, false, it.i);
       eff = it.i <= S.hammer ? `${format(w)} per tap` : `+${format(w - R.hammerWork(S))} per tap`;
@@ -214,8 +223,8 @@ function refresh() {
       }
     }
     if (!x.unlocked) eff = `Unlocks at ${RANKS[itemRank(it.kind, it.i) - 1].title}`;
-    const state = !x.unlocked ? 'locked' : x.owned ? 'owned' : afford ? 'ok' : 'cant';
-    const priceKey = state === 'owned' ? (it.kind === 'hammer' && it.i === S.hammer ? 'eq' : 'own') : x.cost;
+    const state = !x.unlocked ? 'locked' : x.owned ? 'owned' : x.full ? 'full' : afford ? 'ok' : 'cant';
+    const priceKey = state === 'full' ? 'full' : state === 'owned' ? (it.kind === 'hammer' && it.i === S.hammer ? 'eq' : 'own') : x.cost;
     const isBest = !glow && best === it.kind + it.i && x.unlocked && !x.owned;
     const key = [vis, state, priceKey, eff, glow, isBest, afford].join('|');
     if (key === it.key) continue;
@@ -224,12 +233,13 @@ function refresh() {
     it.el.className = 'item ' + state + (glow ? ' glow' : '') + (isBest ? ' best' : '');
     it.eff.textContent = eff;
     if (state === 'locked') it.price.textContent = 'Locked';
+    else if (state === 'full') it.price.textContent = 'Full';
     else if (state === 'owned') it.price.innerHTML = it.kind === 'hammer' && it.i === S.hammer ? '<span class="tag">In hand</span>' : '<svg><use href="#i-check"/></svg>';
     else it.price.innerHTML = `<img src="assets/ui/cookie.webp" alt="">${format(x.cost)}`;
     it.el.querySelector('.callout')?.remove();
     if (glow) it.el.insertAdjacentHTML('beforeend', '<span class="callout">Hire your first elf!</span>');
     else if (isBest) it.el.insertAdjacentHTML('beforeend', `<span class="callout">${afford ? 'Best buy!' : 'Best value'}</span>`);
-    it.el.setAttribute('aria-label', `${it.el.querySelector('.iname').textContent}: ${eff}. ${state === 'locked' ? 'Locked' : state === 'owned' ? 'Owned' : format(x.cost) + ' cookies'}`);
+    it.el.setAttribute('aria-label', `${it.el.querySelector('.iname').textContent}: ${eff}. ${state === 'locked' ? 'Locked' : state === 'full' ? 'Full' : state === 'owned' ? 'Owned' : format(x.cost) + ' cookies'}`);
   }
   const elfGlow = S.helpers[0] === 0 && S.cookies >= 15 && S.tab !== 'helpers';
   document.querySelector('#tabbar button[data-tab="helpers"]')?.classList.toggle('glow', elfGlow);
@@ -349,6 +359,8 @@ function nextCard() {
     HAMMERS.forEach((h) => h.rank === r && h.cost > 0 && unl.push(`<figure><img src="assets/items/${h.id}.webp" alt="">${h.name}</figure>`));
     HELPERS.forEach((h) => h.rank === r && unl.push(`<figure><img src="assets/sprites/${h.img}.webp" alt="">${h.name}</figure>`));
     UPGRADES.forEach((u) => u.rank === r && unl.push(`<figure><img src="assets/ui/${u.img}.webp" alt="">${u.name}</figure>`));
+    const cap = R.ELF_CAP[r - 1], was = R.ELF_CAP[r - 2];
+    if (r >= 2 && cap > was) unl.push(`<figure><img src="assets/sprites/elf-helper.webp" alt="">${cap === Infinity ? 'No limit on elves' : `Room for ${cap} elves`}</figure>`);
     if (r === 4) unl.push('<figure><img src="assets/items/shooting-star.webp" alt="" style="width:80px">Shooting stars</figure>');
     body.innerHTML = `<div class="say"><img src="assets/ui/santa-portrait.webp" alt="Santa"><p>${SANTA[r]}</p></div>
       <h2 id="card-title">You're now</h2><div class="newtitle">${RANKS[r - 1].title}</div>

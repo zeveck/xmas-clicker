@@ -187,6 +187,7 @@ gh-feedback { font-family: Nunito, system-ui, sans-serif; }
 .item .price svg { width: 20px; height: 20px; }
 .item.cant .price { background: linear-gradient(#b9a68b, #9c8a70); color: #fff8; }
 .item.ok .price { background: linear-gradient(#3e7d4b, var(--pine)); }
+.item.full .price { background: linear-gradient(#a07a52, #7a5a3a); color: #fff3da; font-size: 13px; }
 .item.owned .price { background: var(--cream-2); color: var(--pine); }
 .item.locked { opacity: .65; }
 .item.locked img { filter: brightness(0) opacity(.25); }

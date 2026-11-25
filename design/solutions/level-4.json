@@ -10,11 +10,12 @@
   "rank": 5,
   "screen": "workshop>promotion",
   "levelComplete": true,
-  "seconds": 82,
-  "taps": 692,
-  "buys": 11,
+  "seconds": 85,
+  "taps": 684,
+  "buys": 14,
   "stars": 0,
   "cardsClosed": 0,
   "cookies": 433
- }
+ },
+ "last_run_date": "2026-11-25 (after the elf limit, issue #1)"
 }

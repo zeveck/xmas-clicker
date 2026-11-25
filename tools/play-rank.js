@@ -14,7 +14,11 @@ async (page) => {
   await g(() => { window.__runLog = window.__runLog || []; });
   const log = (m) => g((m) => (window.__runLog = window.__runLog || []).push(m), m);
   if (FROM === 0) {
-    await g(() => localStorage.clear());
+    // The game saves as the page unloads, so clear the save as the next page starts, before the game loads.
+    await page.addInitScript(() => {
+      if (sessionStorage.getItem('__freshStart')) { sessionStorage.removeItem('__freshStart'); localStorage.clear(); }
+    });
+    await g(() => sessionStorage.setItem('__freshStart', '1'));
     await page.reload(); await page.waitForTimeout(800);
     await clickEl('#btn-start'); await page.waitForTimeout(600);
   } else {

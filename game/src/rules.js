@@ -48,6 +48,15 @@ export const UPGRADES = [
   { id: 'goldElf', name: 'Golden Elf Hammers', img: 'upg-golden-elf-hammers', effect: 'Elves ×2', cost: 60000, rank: 9 },
 ];
 
+/** Most elves you can have at each rank (the workshop only has so many benches); unlimited at the top. */
+export let ELF_CAP = [4, 8, 12, 25, 30, 36, 42, 48, 56, Infinity];
+export const setElfCap = (c) => { ELF_CAP = c; };
+export const elfCap = (s) => ELF_CAP[Math.min(s.rank, ELF_CAP.length) - 1];
+/** The first rank with room for more elves than you have now (null if none is still to come). */
+export function moreElvesAt(s) {
+  for (let r = s.rank + 1; r <= ELF_CAP.length; r++) if (ELF_CAP[r - 1] > s.helpers[0]) return r;
+  return null;
+}
 export const CREW_TAP = 0.15;      // each tap also adds this share of the crew's work per second
 export const PHONE_CAP = 0.9;      // helpers build the first Smartphone only this far
 export const HELPER_GROWTH = 1.15; // each helper costs 15% more than the last
@@ -101,7 +110,8 @@ export function shopItem(s, kind, i) {
   }
   if (kind === 'helper') {
     const h = HELPERS[i];
-    return { cost: helperCost(i, s.helpers[i]), unlocked: s.rank >= h.rank, owned: false, canBuy: s.rank >= h.rank };
+    const full = i === 0 && s.helpers[0] >= elfCap(s);
+    return { cost: helperCost(i, s.helpers[i]), unlocked: s.rank >= h.rank, owned: false, full, canBuy: s.rank >= h.rank && !full };
   }
   const u = UPGRADES[i];
   return { cost: u.cost, unlocked: s.rank >= u.rank, owned: up(s, u.id), canBuy: s.rank >= u.rank && !up(s, u.id) };
@@ -111,7 +121,7 @@ export function shopItem(s, kind, i) {
 export function buy(s, kind, i) {
   const it = shopItem(s, kind, i);
   if (!it.unlocked) return { ok: false, reason: 'locked', cost: it.cost };
-  if (!it.canBuy) return { ok: false, reason: it.owned ? 'owned' : 'order', cost: it.cost };
+  if (!it.canBuy) return { ok: false, reason: it.owned ? 'owned' : it.full ? 'full' : 'order', cost: it.cost };
   if (s.cookies < it.cost) return { ok: false, reason: 'cookies', cost: it.cost };
   s.cookies -= it.cost;
   if (kind === 'hammer') s.hammer = i;

@@ -1,18 +1,18 @@
 {
  "run": "fresh save to the Christmas Eve card, real input only",
  "player": "tools/play-rank.js with __FROM__=0, __TO__=11",
- "date": "2026-11-24",
+ "date": "2026-11-25 (after the elf limit, issue #1)",
  "log": [
-  "start rank 1 at 2026-11-24T03:20:37.727Z",
-  "rank 2 (Junior Toy Maker) at 16 s; buys 1, stars 0",
-  "rank 3 (Assistant Toy Maker) at 58 s; buys 6, stars 0",
-  "rank 4 (Pretty Good Toy Maker) at 128 s; buys 17, stars 0",
-  "rank 5 (Crafty Toy Maker) at 218 s; buys 28, stars 0",
-  "rank 6 (Master Toy Maker) at 314 s; buys 32, stars 2",
-  "rank 7 (Senior Master Toy Maker) at 408 s; buys 46, stars 3",
-  "rank 8 (Principal Toy Maker) at 554 s; buys 60, stars 4",
-  "rank 9 (Assistant Toy Officer) at 690 s; buys 86, stars 6",
-  "rank 10 (Chief Toy Officer) at 859 s; buys 110, stars 8",
-  "done {\"from\":0,\"to\":11,\"rank\":10,\"screen\":\"eve-card\",\"levelComplete\":true,\"seconds\":888,\"taps\":6419,\"buys\":110,\"stars\":8,\"cardsClosed\":9,\"cookies\":128937}"
+  "start rank 1 at 2026-11-25T01:57:38.049Z",
+  "rank 2 (Junior Toy Maker) at 15 s; buys 1, stars 0",
+  "rank 3 (Assistant Toy Maker) at 55 s; buys 6, stars 0",
+  "rank 4 (Pretty Good Toy Maker) at 120 s; buys 14, stars 0",
+  "rank 5 (Crafty Toy Maker) at 205 s; buys 28, stars 0",
+  "rank 6 (Master Toy Maker) at 296 s; buys 33, stars 1",
+  "rank 7 (Senior Master Toy Maker) at 395 s; buys 46, stars 2",
+  "rank 8 (Principal Toy Maker) at 527 s; buys 60, stars 4",
+  "rank 9 (Assistant Toy Officer) at 657 s; buys 86, stars 5",
+  "rank 10 (Chief Toy Officer) at 809 s; buys 110, stars 7",
+  "done {\"from\":0,\"to\":11,\"rank\":10,\"screen\":\"eve-card\",\"levelComplete\":true,\"seconds\":837,\"taps\":6754,\"buys\":110,\"stars\":7,\"cardsClosed\":9,\"cookies\":128237}"
  ]
 }

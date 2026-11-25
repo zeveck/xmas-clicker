@@ -4,10 +4,11 @@
 // Time is active time with no card open (cards freeze the workshop).
 import fs from 'node:fs';
 import * as R from '../game/src/rules.js';
+if (process.env.ELF_CAP) R.setElfCap(JSON.parse(process.env.ELF_CAP).map((x) => (x === null ? Infinity : x)));
 
 export const TARGET = [0, 40, 120, 240, 390, 570, 780, 1020, 1260, 1560];
 
-export function run(TPS, CATCH, { snapshots = false } = {}) {
+export function run(TPS, CATCH, { snapshots = false, elvesFirst = false } = {}) {
   const s = R.newState();
   const dt = 0.1;
   let t = 0, rush = 0, nextStar = null, starsSeen = 0, done = null, ctoT = null;
@@ -32,7 +33,9 @@ export function run(TPS, CATCH, { snapshots = false } = {}) {
     R.HELPERS.forEach((_, i) => tryItem('helper', i));
     R.UPGRADES.forEach((_, i) => tryItem('upgrade', i));
     opts.sort((a, b) => b[3] / b[2] - a[3] / a[2]);
-    const b = opts[0];
+    // An elves-first player buys an elf whenever one is allowed and affordable.
+    const elf = opts.find((o) => o[0] === 'helper' && o[1] === 0);
+    const b = elvesFirst && elf && s.cookies >= elf[2] ? elf : opts[0];
     if (b && b[3] > 0 && s.cookies >= b[2]) {
       R.buy(s, b[0], b[1]);
       if (t - lastBuy > gap) { gap = t - lastBuy; gapAt = t; }
@@ -115,16 +118,21 @@ if (process.argv[1] && process.argv[1].endsWith('balance.mjs')) {
     const ref = run(3, 0.5, { snapshots: true }), slow = run(2, 0);
     report('Reference', 3, 0.5, ref); report('3/s no stars', 3, 0, run(3, 0)); report('Slow', 2, 0, slow); report('Fast', 5, 1, run(5, 1));
     report('Play-test pace', 10, 1, run(10, 1));
+    const greedy = run(3, 0.5, { elvesFirst: true });
+    report('Elves-first (3/s, half the stars)', 3, 0.5, greedy);
     const checks = [
       ['reference: every rank within ±25% of target', ref.rankT.length === 10 && ref.rankT.every((x, i) => !i || Math.abs(x / TARGET[i] - 1) <= 0.25)],
       ['reference: never more than 90 s between purchases', ref.gap <= 90],
       ['reference: every hammer and upgrade bought before Chief Toy Officer', ref.boughtAll && ref.allBy < ref.ctoT],
       ['reference: taps at least 30% of the work at every rank, 30-42% from rank 5', ref.share.every((x, i) => x >= 0.3 && (i < 4 || x <= 0.42))],
       ['slow (2/s, no stars): Christmas Eve under 45 min', slow.done !== null && slow.done < 2700],
+      ['elves-first player: reaches Christmas Eve under 45 min', greedy.done !== null && greedy.done < 2700],
+      ['reference: every rank-arrival save is within the elf limits', Object.entries(ref.snaps).every(([r, sn]) => sn.helpers[0] <= R.ELF_CAP[Math.min(+r, 10) - 1])],
       ...awayChecks(),
     ];
     let ok = true;
     for (const [n, p] of checks) { console.log((p ? 'PASS ' : 'FAIL ') + n); ok = ok && p; }
+    if (process.env.ELF_CAP) { process.exitCode = ok ? 0 : 1; process.exit(); } // a what-if run: leave the play-test saves alone
     const dir = new URL('./snapshots/', import.meta.url);
     fs.mkdirSync(dir, { recursive: true });
     for (const [r, snap] of Object.entries(ref.snaps)) fs.writeFileSync(new URL(`rank-${r}.json`, dir), JSON.stringify(snap));

@@ -205,6 +205,22 @@ automatically, and older ones stay on show):
 | Toy Machine (a clockwork gingerbread contraption) | 30 | 1,800 | 5 |
 | Reindeer Team (two reindeer working a big toy press) | 150 | 10,000 | 7 |
 
+**Elf benches** (issue #1, "Elves"): elves are limited per rank, so hiring
+elves can't crowd out the hammers and upgrades. The most elves you can have:
+4, 8, 12, 25, 30, 36, 42, 48 and 56 at ranks 1–9, and no limit at Chief Toy
+Officer. The Elf card shows "11 of 12 hired" (just "N hired" at Chief Toy Officer).
+When it's full, its price reads "Full" in a calm wooden plate (not the greyed
+"can't afford" look), its line says "Workshop full: more elves at <the first
+rank with room for more>", it never gets the "Best buy!" ribbon or lights a tab's
+dot, and tapping it says the same in a toast. Each promotion that raises the
+limit lists "Room for 25 elves" (or "No limit on elves") with its unlocks. The
+word "bench" stays off screen: it already means Pip's workbench. Saves keep every
+elf: one from before the limit with more elves than it allows shows "30 hired ·
+Workshop full" until a rank makes room. The reference player
+barely meets the limits (Christmas Eve at 26:25, against 26:23 before). A player who buys
+an elf whenever they can reaches Christmas Eve at 28:47 with the limits, and
+at 39:32 without them; the balance script checks it stays under 45 minutes.
+
 **Upgrades** (bought once each):
 
 | Upgrade | Effect | Cost | Unlocked at rank |

@@ -27,6 +27,7 @@ install, works on desktop and on phones.
 - **Hammer:** tap or click the stage, or press Space or Enter. Several fingers count.
 - **Pick a toy:** tap its card (on phones, on the Toys tab), or press 1–9 and 0.
 - **Buy:** tap a hammer, helper or upgrade when you have the cookies.
+- **Elves:** the workshop only has room for so many: 4 at first, more with each promotion, and no limit once you're Chief Toy Officer.
 - **Shooting stars:** from Pretty Good Toy Maker on, catch one in the window for a 20-second Star Rush.
 - **Pause and settings:** Esc or P, or the gear button. **Mute:** M, or the speaker button.
 - On a phone, hold it either way up. You can install it from your browser's menu to play full screen, even offline.
@@ -52,6 +53,18 @@ to build it:
 > `/gamegen:gamegen --continue --out xmas-clicker --budget 30 --art-sheet --publish --no-confirm`
 
 (with a "Report a bug" button added along the way, from `--feedback`).
+
+Then, to take the "remake" line off the title:
+
+> `/gamegen:gamegen --change --out xmas-clicker Chief Toy Officer game shouldn't say "A remake of Xmas clicker" anywhere.`
+
+To turn the Heavy Hammer the right way round, make the pile under the tree out of the toys you build, and credit Sean Dailey:
+
+> `/gamegen:gamegen --out xmas-clicker --change The heavy hammer looks backwards. It'd be nice if the things I made actually piled up under the tree maybe? The credits should day "Sean Dailey's" instead of just "Sean's"  --publish --no-confirm`
+
+And to fix the first player report, [#1 "Elves"](https://github.com/zeveck/xmas-clicker/issues/1) (hiring elves crowded out the hammers, so the workshop now has room for more elves with each rank):
+
+> `/gamegen:gamegen --fix all --publish --no-confirm`
 
 gamegen had review agents polish the design, made the art, animation, music and
 sound with these plugins, built it, and play-tested it:
