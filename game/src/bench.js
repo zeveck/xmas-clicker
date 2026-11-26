@@ -20,12 +20,13 @@ export const MAP = {
     { kind: 2, n: 1, box: [9, 25, 66, 87.5] },
   ],
   pile: { x0: 66, x1: 100, y0: 80, y1: 99 },
+  globe: { cx: 81.2, w: 5.2, foot: 36.7 }, // the snow globe on the lower shelf, left of the tree's tip
 };
 
 const IMG = {};
 let META = {}, LIGHTS = null, PIVOTS = null, HAMMERJ = null;
 const files = [
-  'bg/workshop-bg', 'bg/bench', 'bg/stool', 'bg/tree', 'bg/finale-sky', 'bg/sleigh', 'items/tree-star', 'items/shooting-star',
+  'bg/workshop-bg', 'bg/bench', 'bg/stool', 'bg/tree', 'bg/finale-sky', 'bg/sleigh', 'items/tree-star', 'items/shooting-star', 'items/snow-globe',
   'sprites/elf-helper', 'sprites/toy-machine', 'sprites/reindeer-team',
   ...[0, 1, 2, 3].map((i) => `sprites/pip-swing/frame-${i}`),
   ...TOYS.map((t) => 'items/' + t.id), ...HAMMERS.map((h) => `items/${h.id}-hand`),
@@ -109,6 +110,7 @@ function layout(toyIdx) {
   L.strikeAngle = angle;
   L.toyBox = { x: cx - ((tx0 + tx1) / 2) * ts, y: Y(MAP.toy.foot) - ty1 * ts, w: tw * ts, h: tw * ts, s: ts, top: toyTop, cx };
   L.crew = MAP.crew.map((c) => fitBox(c.kind === 0 ? 'sprites/elf-helper' : c.kind === 1 ? 'sprites/toy-machine' : 'sprites/reindeer-team', c.box));
+  { const [gw, , gx0, , gx1] = bboxOf('items/snow-globe'); L.globe = placeCanvas('items/snow-globe', MAP.globe.cx - ((gx0 + gx1) / 2 / gw) * MAP.globe.w, MAP.globe.w, MAP.globe.foot); }
   L.slots = pileSlots();
   layoutCache = L;
   return L;
@@ -172,6 +174,60 @@ export function toyDone(count, toyIdx) {
   A.popAt = now; A.popCount = count;
   if (count === 1) A.spinAt = now;
   if (A.flying.length < 3) A.flying.push({ t: now, toy: toyIdx });
+}
+
+// ---- The snow globe: shakes when you're promoted, then its snow swirls and settles ----
+const GLOBE = { cx: 128, cy: 94, r: 72, floor: 146 }; // the dome, in the 256 px image
+let flakes = [];
+export function shakeGlobe() {
+  A.globeAt = performance.now();
+  flakes = Array.from({ length: 26 }, () => {
+    const a = Math.random() * Math.PI * 2, d = Math.sqrt(Math.random()) * GLOBE.r * 0.9;
+    return { x: GLOBE.cx + Math.cos(a) * d, y: GLOBE.cy + Math.sin(a) * d * 0.9 - 10, ph: Math.random() * 7, sw: 8 + Math.random() * 14, v: 7 + Math.random() * 9, s: 1.6 + Math.random() * 1.6 };
+  });
+}
+export const globeState = () => ({ shaking: performance.now() - (A.globeAt ?? -1e9) < 1600, flakes: flakes.length });
+function drawGlobe(L, now) {
+  const im = IMG['items/snow-globe'], b = L.globe;
+  if (!im || !b) return;
+  const t = (now - (A.globeAt ?? -1e9)) / 1000;
+  const k = b.w / 256;
+  const px = b.x + 128 * k, py = b.y + 242 * k; // rocks on the middle of its base
+  g.save();
+  g.translate(px, py);
+  if (t >= 0 && t < 1.6) {
+    const e = Math.exp(-t * 2.4);
+    g.rotate(0.3 * Math.sin(t * Math.PI * 2 * 3.1) * e);
+    g.translate(0, -Math.abs(Math.sin(t * Math.PI * 2 * 3.1)) * b.h * 0.05 * e);
+  }
+  g.translate(-px, -py);
+  g.drawImage(im, b.x, b.y, b.w, b.h);
+  if (flakes.length && t < 7) {
+    g.save();
+    g.beginPath(); g.arc(b.x + GLOBE.cx * k, b.y + GLOBE.cy * k, GLOBE.r * k, 0, 7); g.clip();
+    g.fillStyle = '#fffdf6';
+    for (const f of flakes) {
+      const swirl = Math.exp(-t * 0.7);
+      const x = f.x + Math.sin(t * 2.2 + f.ph) * f.sw * swirl;
+      const y = Math.min(GLOBE.floor, f.y + f.v * t - Math.cos(t * 2.2 + f.ph) * f.sw * 0.5 * swirl);
+      const alpha = t > 5.5 ? Math.max(0, (7 - t) / 1.5) : 1;
+      g.globalAlpha = alpha * 0.95;
+      g.beginPath(); g.arc(b.x + x * k, b.y + y * k, Math.max(0.9 * dpr, f.s * k), 0, 7); g.fill();
+    }
+    g.restore();
+  } else if (flakes.length) flakes = [];
+  g.restore();
+  // A few gold glints around the dome as it starts to shake.
+  if (t >= 0 && t < 1.1) {
+    const cx = b.x + GLOBE.cx * k, cy = b.y + GLOBE.cy * k, R = GLOBE.r * k;
+    for (let i = 0; i < 5; i++) {
+      const lt = t - i * 0.12; if (lt < 0 || lt > 0.55) continue;
+      const a = -2.6 + i * 1.15, d = R * (1.25 + (i % 2) * 0.2), sz = Math.max(3 * dpr, R * 0.34) * Math.sin((lt / 0.55) * Math.PI);
+      const x = cx + Math.cos(a) * d, y = cy + Math.sin(a) * d;
+      g.fillStyle = 'rgba(255,224,130,0.95)';
+      g.beginPath(); g.moveTo(x, y - sz); g.quadraticCurveTo(x, y, x + sz * 0.6, y); g.quadraticCurveTo(x, y, x, y + sz); g.quadraticCurveTo(x, y, x - sz * 0.6, y); g.quadraticCurveTo(x, y, x, y - sz); g.fill();
+    }
+  }
 }
 
 // ---- Star ----
@@ -437,6 +493,7 @@ export function draw(view) {
   drawSnow(now);
   if (view.star != null) drawStar(view.star, now);
   drawCrew(L, view.helpers, now);
+  drawGlobe(L, now);
   drawImg('bg/tree', L.tree);
   drawLights(L, now, view);
   drawTreeStar(L, view, now);

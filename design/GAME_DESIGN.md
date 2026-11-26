@@ -387,6 +387,15 @@ Must-haves:
   kind; past the slots, a kind shows "×N" on its last figure.
 - Promotions: confetti, the Santa card, and a fanfare. A new strand of
   lights (bulbs off) is hung on the tree, one per promotion.
+- **The snow globe** (added on request, 2026-11-26): a little snow globe
+  sits on the lower shelf, just left of the tree's tip (stage map:
+  centre x 81.2%, 5.2% wide, base at y 36.7%). When you close a promotion
+  card ("Back to work!"), so you see it rather than the card, it rocks on
+  its base for 1.6 s with a little hop, five gold glints wink around the
+  dome, a glassy tinkle plays, and 26 flakes swirl inside the dome, then
+  settle onto its snowy mound and fade over about 7 s. Several promotions
+  at once (after time away) shake it once per card. It's decoration only:
+  nothing in play depends on it.
 - The first Smartphone at 90%: the work bar glows gold and pulses, the
   banner changes, and each tap throws extra sparks until it's done.
 - The Star Rush: a gold vignette, a timer ring, and a looping sleigh-bell
@@ -598,6 +607,8 @@ Nice to have:
 | github-social | 1280×640 repo preview | code (playwright-cli) | PNG | no | | must |
 | music-workshop | Workshop music | audiogen music | 120 s MP3 at 96 kbps | | looped with a crossfade | must |
 | music-eve | Christmas Eve music | audiogen music | 60 s MP3 at 96 kbps | | | should |
+| snow-globe | A little snow globe: snowy pine and red-roofed cottage under a clear dome, red base with a gold band (added 2026-11-26) | imagegen2 (ref toy-05) | 1024×1024 → 256×256 WebP | yes | rocks, glints and inner snow in code | must |
+| sfx-globe-shake | A tiny snow globe shaken: a glassy tinkle and a soft swish (added 2026-11-26) | audiogen sfx | 1.5 s MP3 | | | must |
 | sfx-* | The 17 sounds in the sound table (3 taps; the Star Rush bells made with `--loop`) | audiogen sfx | 0.5–4 s MP3 each, trimmed in code | | | must |
 | voice-santa-hohoho | Santa's "Ho ho ho!" | audiogen voice | ~1.5 s MP3 | | | should |
 

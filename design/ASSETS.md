@@ -42,3 +42,5 @@ Running total: about $0.76 of $20 (mockups: $0.76 of $5).
 Build run total: about $7.0. With the shared design's pictures ($0.76): **about $7.8 of $30.**
 
 Change 6 (2026-11-24): hammer-2 (both files) mirrored in Pillow so its flat face leads; no new spending. The six present pictures are no longer drawn in the game (the pile shows the toys themselves) but stay on the art sheet.
+
+Change 10 (2026-11-26), the snow globe: `snow-globe` (game/assets/items/snow-globe.webp, imagegen2 high 1024², ref toy-05, 1 try, about $0.06) and `globe-shake` (game/assets/audio/sfx/globe-shake.mp3, audiogen sfx 1.5 s, 2 takes, the first kept, about $0.05). **About $0.11 of this change's $20.**

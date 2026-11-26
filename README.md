@@ -18,7 +18,7 @@ install, works on desktop and on phones.
 | | |
 |---|---|
 | ![You at the bench with a full crew, a Thunder Mallet and a pile of presents](media/screenshots/workshop.png) | ![Santa's promotion card on a phone](media/screenshots/promotion.png) |
-| Ten toys, from the Wooden Tractor to the Smartphone, four hammers, elves, clockwork Toy Machines and a Reindeer Team. | Ten ranks, word for word from the original, each announced by Santa himself. |
+| Ten toys, from the Wooden Tractor to the Smartphone, four hammers, elves, clockwork Toy Machines and a Reindeer Team. | Ten ranks, word for word from the original, each announced by Santa himself, and the little snow globe on the shelf shakes for every one. |
 | ![The sleigh crossing the moon on Christmas Eve](media/screenshots/christmas-eve.png) | ![The Christmas Eve card](media/screenshots/christmas-eve-card.png) |
 | Christmas Eve: the tree lights up, the presents float away, and the sleigh crosses the moon. | Then keep building as long as you like. |
 
@@ -70,13 +70,17 @@ And to take back the original's name, Xmas Clicker, and leave the elf unnamed (t
 
 > `/gamegen:gamegen --change rename the game Xmas Clicker and leave the elf unnamed: say "you" instead of Pip --publish --no-confirm`
 
+And to put a little snow globe on the shelf that shakes when you get promoted:
+
+> `/gamegen --out xmas-clicker --change add a little snow globe on the shelf that shakes when you get promoted`
+
 gamegen had review agents polish the design, made the art, animation, music and
 sound with these plugins, built it, and play-tested it:
 
-- [imagegen2](https://github.com/zeveck/imagegen2): the elf, every toy, hammer, helper, upgrade and present, Santa, the bench, the tree, the stool and the sleigh
+- [imagegen2](https://github.com/zeveck/imagegen2): the elf, every toy, hammer, helper, upgrade and present, Santa, the bench, the tree, the stool, the snow globe and the sleigh
 - [nanogen](https://github.com/zeveck/nanogen): the workshop, the title art and the moonlit sky of Christmas Eve
 - [anim8gen](https://github.com/zeveck/anim8gen): the elf's hammer swing
-- [audiogen](https://github.com/zeveck/audiogen): the workshop music, the Christmas Eve music, 17 sound effects and Santa's "Ho ho ho"
+- [audiogen](https://github.com/zeveck/audiogen): the workshop music, the Christmas Eve music, 18 sound effects and Santa's "Ho ho ho"
 
 ## Replaying the tests
 

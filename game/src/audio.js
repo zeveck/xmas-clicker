@@ -2,7 +2,7 @@
 const SFX = {
   'tap-1': 0.55, 'tap-2': 0.55, 'tap-3': 0.55, 'tap-heavy': 0.6, 'toy-done': 0.45, 'present-whoosh': 0.35,
   'cookie-clink': 0.4, purchase: 0.9, nope: 0.6, 'elf-hired': 0.7, promotion: 0.7, 'star-appear': 0.9,
-  'star-catch': 0.7, 'rush-loop': 0.35, 'rush-end': 0.6, 'ui-click': 0.9, 'eve-sleigh': 0.7, 'santa-hohoho': 1.0,
+  'star-catch': 0.7, 'rush-loop': 0.35, 'rush-end': 0.6, 'ui-click': 0.9, 'eve-sleigh': 0.7, 'santa-hohoho': 1.0, 'globe-shake': 0.8,
 };
 // Minimum gap between two plays of the same effect (ms).
 const GAP = { 'toy-done': 250, 'present-whoosh': 300, 'cookie-clink': 300, 'star-appear': 1000, 'ui-click': 40 };

@@ -392,6 +392,7 @@ function closeCard() {
   $('card-layer').hidden = true;
   stopConfetti();
   if (was.type === 'promotion' && was.rank >= 2) refreshAll();
+  if (was.type === 'promotion') { Bench.shakeGlobe(); Audio.play('globe-shake'); }
   if (was.type === 'eve') endEve();
   doSave();
   nextCard();
@@ -759,6 +760,7 @@ if (DEBUG) Object.assign(window.__game, {
   setRank(i) { S.rank = Math.max(1, Math.min(10, i)); S.cheer = Math.max(S.cheer, RANKS[S.rank - 1].cheer); S.toy = S.rank - 1; refreshAll(); },
   tap(n = 1) { for (let i = 0; i < n; i++) tap(); },
   advance(seconds) { const n = Math.round(seconds / STEP); for (let i = 0; i < n; i++) economy(STEP); refreshAll(); },
+  globe: () => Bench.globeState(),
   spawnStar() { if (S.rank >= R.STAR_RANK) { star = { t: 0 }; Audio.play('star-appear'); } },
   seedStars(seed) { starRand = R.rng(seed); nextStarIn = null; },
   setAway(seconds) { creditAway(seconds); },
