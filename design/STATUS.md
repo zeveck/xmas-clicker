@@ -1,4 +1,4 @@
-# Chief Toy Officer
+# Xmas Clicker
 
 ## Requests
 
@@ -10,6 +10,7 @@
 6. `/gamegen:gamegen --out xmas-clicker --change The heavy hammer looks backwards. It'd be nice if the things I made actually piled up under the tree maybe? The credits should day "Sean Dailey's" instead of just "Sean's"  --publish --no-confirm`
 7. `/gamegen:gamegen --fix all --publish --no-confirm`
    - #1: Elves (https://github.com/zeveck/xmas-clicker/issues/1), filed by zeveck
+8. `/gamegen:gamegen --change rename the game Xmas Clicker and leave the elf unnamed: say "you" instead of Pip --publish --no-confirm`
 - Later request (exactly as typed): `When this lands, we should apply /gamegen:gamegen --feedback to both xmas-clicker and xmas-everywhere and /gamegen:gamegen --saves to xmas-everywhere`
 
 ## Settings
@@ -48,3 +49,4 @@
 - [x] Change 5: "a remake of Xmas Clicker" removed from the title screen, the page description, the README and the design (credits still name the 2017 original). Checked: title screen scanned and Start pressed at 6 sizes. Published 2026-11-24 (`/gamegen:gamegen --out xmas-clicker --publish --no-confirm`); gallery card, plans card and design page no longer say it either.
 - [x] Change 6: Heavy Hammer mirrored (flat face now strikes; follow-through now follows the strike angle for every hammer); the pile under the tree shows the toys you made (spots shared by cheer earned, newest toys take over, every kind keeps one; old saves filled in from toy counts); credits say "Sean Dailey's". Checked: strike and follow-through frames, the heap at ranks 2/4/7/8/10 on desktop and phone, a toy in flight, the Christmas Eve lift, an old save loading, credits scanned; rank 1 and the finale replayed with real input; balance checks pass.
 - [x] Fix #1 (Elves): elves limited per rank (4, 8, 12, 25, 30, 36, 42, 48, 56, then none); full Elf card, toast and promotion line; one review round (player, builder), all findings taken. Balance: reference Eve 26:25 (26:23 before), elves-first 28:47 (39:32 before). Checked: limit filled by real clicks and touch at 1280, 360 and 667; over-limit old save; every rank replayed; whole game from a fresh save 13:57 with real input. Test player fixed: a fresh start now really clears the save.
+- [x] Change 8: renamed to Xmas Clicker (title screen, page title and tags, app name, credits, report-a-bug name, README, social card and GitHub preview); the elf is unnamed ("You add the finishing touches: tap!"). Chief Toy Officer stays the top rank; save key and address unchanged. Checked (text only, so no replays): title, the final Smartphone banner, pause and credits at 1280, 800, 360, 393, 667 and 844 with the text scanner and real clicks, no console errors; social card and GitHub preview remade and looked at; balance checks pass.

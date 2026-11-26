@@ -1,10 +1,10 @@
-# Chief Toy Officer
+# Xmas Clicker
 
 *Hammer your way from Assistant Junior Toy Maker to the top of Santa's workshop.*
 
 ## Pitch
 
-You're Pip, the newest elf in Santa's workshop. Tap the workbench to hammer
+You're the newest elf in Santa's workshop. Tap the workbench to hammer
 toys together, spend the cookies they earn on better hammers and more
 helpers, and watch the presents pile up under the tree. Every promotion
 unlocks a new toy and a sillier job title, until Santa names you Chief Toy
@@ -22,7 +22,8 @@ Officer and you build the last toy before the sleigh leaves on Christmas Eve.
 - Feedback: on (a "Report a bug" button for players; see the tech plan)
 - Remake of: Xmas Clicker (synapticnoise.com/xmasclicker), leeway lots. See `ORIGINAL.md`.
 - Decisions made on the player's behalf:
-  - The new name is **Chief Toy Officer**. The game never calls itself a remake of Xmas Clicker (changed on request, 2026-11-24); the credits still name the 2017 original.
+  - The name is **Xmas Clicker** (renamed from Chief Toy Officer on request, 2026-11-26; Chief Toy Officer stays the top rank). The game never calls itself a remake (changed on request, 2026-11-24); the credits name the 2017 game of the same name.
+  - The elf has no name: the game says "you" (changed on request, 2026-11-26). Files keep their `pip-` names.
   - Three names change for originality: **Thunder Mallet** (was Thor's Hammer), **Pixel Play** console (was Super Game System), **Doodle Dial** (was Sketch An Etch).
   - The original's toy "value" becomes **cookies**, the money you spend.
   - Sean Dailey's prototype supplies the helpers: elves, elf hammers, and click upgrades (the hammers).
@@ -46,7 +47,7 @@ a Thunder Mallet in your fist and a tree buried in presents.
 - **Session:** fill the cheer bar to win a promotion. Santa pops in, reads
   out your new title, and a new toy unlocks. Your helpers keep working while
   you're away. At Chief Toy Officer, the Smartphone unlocks. Your crew
-  builds it to 90%, and Pip adds the finishing touches with your taps.
+  builds it to 90%, and you add the finishing touches with your taps.
   That brings Christmas Eve: the tree lights up, the sleigh takes the whole
   pile, and the credits roll. Then you can keep playing for fun.
 
@@ -214,7 +215,7 @@ When it's full, its price reads "Full" in a calm wooden plate (not the greyed
 rank with room for more>", it never gets the "Best buy!" ribbon or lights a tab's
 dot, and tapping it says the same in a toast. Each promotion that raises the
 limit lists "Room for 25 elves" (or "No limit on elves") with its unlocks. The
-word "bench" stays off screen: it already means Pip's workbench. Saves keep every
+word "bench" stays off screen: it already means the elf's workbench. Saves keep every
 elf: one from before the limit with more elves than it allows shows "30 hired ·
 Workshop full" until a rank makes room. The reference player
 barely meets the limits (Christmas Eve at 26:25, against 26:23 before). A player who buys
@@ -245,7 +246,7 @@ catches it; it isn't also a hammer hit.
 
 **The first Smartphone is yours to finish.** Helpers can build the first
 Smartphone only to 90%. There the work bar glows gold, the banner changes
-to "Pip adds the finishing touches: tap!", and the last 10% (15,000 work)
+to "You add the finishing touches: tap!", and the last 10% (15,000 work)
 comes from taps alone, about 5 seconds for the reference player. Helper
 work past 90% isn't used. Later Smartphones work like any toy.
 
@@ -282,7 +283,7 @@ work past 90% isn't used. Later Smartphones work like any toy.
   zero cookies and zero helpers, the Wooden Tractor still pays. Christmas
   Eve waits for a Smartphone, which is selected for you and always
   reachable by tapping (taps are what finish it); a banner over the stage
-  ("Build a Smartphone before the sleigh leaves!", then "Pip adds the
+  ("Build a Smartphone before the sleigh leaves!", then "You add the
   finishing touches: tap!") stays until it's done.
 
 ## Win, lose and progress
@@ -318,7 +319,7 @@ work past 90% isn't used. Later Smartphones work like any toy.
     fit (the longest, "Assistant Junior Toy Maker", must fit at 360 px),
     plus the gear and speaker buttons; (2) cookies, the cheer bar to the
     next rank, and "4/tap · 12/s". On desktop it's one row.
-  - The stage: Pip at the bench with the current toy, the tree with its
+  - The stage: The elf at the bench with the current toy, the tree with its
     present pile, and the crew working at the left, under the lanterns
     (see the stage map under Art direction). Below it: the toy's name and
     its red-and-white candy-stripe work bar.
@@ -359,14 +360,14 @@ work past 90% isn't used. Later Smartphones work like any toy.
 Must-haves:
 
 - On every tap:
-  - Pip swings the current hammer (the swing restarts on every tap, so
+  - the elf swings the current hammer (the swing restarts on every tap, so
     fast taps never queue)
   - the toy squashes
   - a spark burst on the toy
   - a floating "+N"
   - a tap sound, picked from 3 variations with a small random pitch change
 - On every finished toy:
-  - it pops up with a bounce, and Pip's hammer spins once (as in the
+  - it pops up with a bounce, and the elf's hammer spins once (as in the
     original)
   - a quick flash of light
   - the toy itself arcs into the pile under the tree (changed on request: the pile shows the toys you made, not wrapped presents)
@@ -407,7 +408,7 @@ Nice to have:
   pine green, cream, honey gold and cocoa brown, soft rounded shapes, gentle
   dark-brown outlines, soft warm lighting from the upper left, handmade and
   charming, no text."
-- **Style anchor (made):** `pip-anchor.png`, 1024×1024, transparent. Pip,
+- **Style anchor (made):** `pip-anchor.png`, 1024×1024, transparent. The elf,
   a young elf toymaker: curly red hair, a green pointed hat with a red
   zig-zag band and a brass bell, green tunic with a cream collar, a brown
   leather apron with a brass-buckled belt and a tool pouch on his right
@@ -415,14 +416,14 @@ Nice to have:
   His right hand is a loose fist at his chest holding the apron strap; the
   left hand is open at his side. No mallet. Three-quarter view from the
   front, facing right, full body. His body fills about 45% of the canvas
-  width (alpha box x 284–747, y 0–1010). Every later image uses Pip as a
+  width (alpha box x 284–747, y 0–1010). Every later image uses the elf as a
   reference. The anchor itself is never put on the stage: the swing's
   frame 0 is the idle pose.
 - **One camera:** everything on the stage is seen from the front at the
   same eye height. Characters stand three-quarter, facing right; the bench
   is straight on (as made), with its top just visible.
-- **Pip's swing:** one anim8gen animation made from the anchor. Brief:
-  "Pip alone, no bench, no hammer, no props; right hand a closed empty
+- **The elf's swing:** one anim8gen animation made from the anchor. Brief:
+  "the elf alone, no bench, no hammer, no props; right hand a closed empty
   fist; striking down at chest-to-waist height in front of him, to the
   right." 4 frames: 0 idle (also the pose between taps), 1 raise, 2
   strike, 3 follow-through. All frames share one canvas, one scale and
@@ -431,7 +432,7 @@ Nice to have:
   frames/`, the fist pivot (x, y), the hammer angle, and a fist crop box.
   The current hammer (hammer-1…4) is drawn in code at the pivot, then the
   fist crop is drawn again on top, so the fingers wrap the handle. Every
-  hammer is drawn with the same handle length (35% of Pip's height) from
+  hammer is drawn with the same handle length (35% of the elf's height) from
   a per-hammer grip point, so on the strike frame every head lands on the
   toy's top centre.
 - **Stage map** (in % of the 4:3 stage, x from left, y from top; checked
@@ -444,7 +445,7 @@ Nice to have:
     (x 55–99, y 14–45); the back wall meets the floor at y 66; the floor
     (y 66–100) is empty.
   - **Star band:** the shooting star crosses the window inside x 18–50, y
-    13–40, above Pip's hat (top at y 45).
+    13–40, above the elf's hat (top at y 45).
   - **Tree** (`tree`, 1024×1536): canvas 29% wide at x 71, foot at y 89.
     The tree shows at x 72–99, y 32–89, in front of the jar shelves.
   - **Bench** (`bench`, 1536×1024): canvas 40% wide at x 36, foot at y
@@ -453,7 +454,7 @@ Nice to have:
   - **Toy spot:** toy canvas 14% wide at x 45, foot at y 68.5 (on the
     bench top). The toy shows at about x 46–59, y 52–68.5. Its top centre,
     about (52, 55), is where the hammer lands.
-  - **Pip** (`pip-swing` frames, same scale as the anchor): canvas 40% wide
+  - **The elf** (`pip-swing` frames, same scale as the anchor): canvas 40% wide
     at x 12, foot at y 98. His body shows at x 23–41, y 45–98, standing in
     front of the bench's left end (over the vice). His idle fist is at
     about (31, 61); on the strike frame the fist reaches about (40, 64).
@@ -463,16 +464,16 @@ Nice to have:
     wall line): elf 1 x 1–11.5, y 52–66; elf 2 x 7.5–18, y 51–65; Toy
     Machine x 12–22.5, y 50–64. Front row: elf 3 x 0–12, y 71–87;
     Reindeer Team (bigger, it's two reindeer) x 9–25, y 66–87.5. The
-    figures overlap each other a little, back row first. Pip's hat bell
-    touches the Toy Machine slot's corner; Pip is drawn over it.
+    figures overlap each other a little, back row first. The elf's hat bell
+    touches the Toy Machine slot's corner; the elf is drawn over it.
   - **Present pile:** x 66–100, y 80–99, in front of the tree's tub and
     the bench's right legs.
   - **Draw order** (back to front): background, star and its glow, crew
     back row, crew front row, tree and its lights, tree-top star, bench,
-    pile, toy, Pip, the hammer canvas (hammer, then the fist crop),
+    pile, toy, the elf, the hammer canvas (hammer, then the fist crop),
     particles and floating numbers, the presents flying to the pile, the
     banner and the tap hint.
-  - On a portrait phone (390 px wide) the stage is about 290 px tall: Pip
+  - On a portrait phone (390 px wide) the stage is about 290 px tall: The elf
     is about 150 px tall, the toy about 55 px wide, back-row crew figures
     about 40 px.
 - **The tree (made):** a plain fir in a wooden tub with iron bands, no
@@ -501,7 +502,7 @@ Nice to have:
   with Pillow. Everything ships as WebP (with alpha where transparent);
   a 1024 PNG toy is 1.7 MB, the same toy as a 256 px WebP is 16 KB. Toys
   ship at 384 px (on the bench and the shelf); shop, upgrade and other
-  icons at 256 px (shown at 64–128 px); Pip's frames at 512 px; stage
+  icons at 256 px (shown at 64–128 px); the elf's frames at 512 px; stage
   props and backgrounds as in the asset list. The anchor isn't shipped.
 - **UI:**
   - The interface is drawn in code.
@@ -569,16 +570,16 @@ Nice to have:
 
 | ID | What it is | Tool | Generate at → ship at | Transparent | Animation | Priority |
 |---|---|---|---|---|---|---|
-| pip-anchor | Pip, the style anchor (made: empty fist at the chest, leather apron, tool pouch, no mallet; full body, three-quarter front, facing right) | imagegen2 | 1024×1024 PNG, kept in `.gamegen/` as the reference, not shipped | yes | | must (shared design, made) |
-| pip-swing | Pip alone, no bench, no hammer, no props, right hand a closed empty fist, striking down at chest-to-waist height in front of him to the right | anim8gen (from pip-anchor) | 1024×1024 → 4 frames, 512×512 WebP each (frame 0 = idle), plus a pivot JSON measured on the final aligned frames | yes | 4-frame swing, ~120 ms, restarts on every tap; hammer and fist crop drawn in code | must |
+| pip-anchor | The elf, the style anchor (made: empty fist at the chest, leather apron, tool pouch, no mallet; full body, three-quarter front, facing right) | imagegen2 | 1024×1024 PNG, kept in `.gamegen/` as the reference, not shipped | yes | | must (shared design, made) |
+| pip-swing | The elf alone, no bench, no hammer, no props, right hand a closed empty fist, striking down at chest-to-waist height in front of him to the right | anim8gen (from pip-anchor) | 1024×1024 → 4 frames, 512×512 WebP each (frame 0 = idle), plus a pivot JSON measured on the final aligned frames | yes | 4-frame swing, ~120 ms, restarts on every tap; hammer and fist crop drawn in code | must |
 | workshop-bg | The empty workshop interior (made): arched night window x 16–52%, lanterns, garland, tool rack and shelves, empty floor from y 66% | nanogen (anchor as style ref) | 2400×1792 → 1600×1200 WebP | no | | must (shared design, made) |
 | bench | The workbench (made): front view, empty top, green vice on the left end, carving tools on the right end, lower shelf with offcuts | imagegen2 (ref anchor) | 1536×1024 → 1024×683 WebP | yes | | must (made) |
 | tree | Christmas tree (made): plain fir in a wooden tub, no lights, bare tip | imagegen2 (ref anchor) | 1024×1536 → 683×1024 WebP, plus hand-placed `tree-lights.json` | yes | lights drawn in code | must (made) |
 | tree-star | The tree-top star | imagegen2 (ref anchor + tree) | 1024×1024 → 256×256 WebP | yes | dim, then lit, in code | must |
 | presents | 6 wrapped presents, different colours and sizes, on one sheet, cut apart in code | imagegen2 (ref anchor) | 1024×1024 → 1024×1024 WebP | yes | | must |
 | toy-01…toy-10 | The 10 toys, one each: Wooden Tractor (made), Yo-yo, Puzzle Cube, Wooden Sword, Doodle Dial (made: cream screen in a green rim, brass crank, red stand), Fidget Spinner, Chess (king and knight), Pixel Play (made: cream-and-red handheld, green screen, brass d-pad), Bike, Smartphone (generic, no logos) | imagegen2 (ref anchor + toy-01) | 1024×1024 → 384×384 WebP each | yes | | must (toy-01, 05, 08 made) |
-| hammer-1…hammer-4 | Cheap Hammer, Heavy Hammer, Supreme Hammer (brass and red), Thunder Mallet (a stormy blue-silver mallet with a crackle of lightning, original design); drawn straight, handle down, for rotating in Pip's hand; grip point noted per hammer | imagegen2 (ref anchor) | 1024×1024 → 256×256 WebP each (shop) and 512×512 WebP (in hand) | yes | rotated in code | must |
-| elf-helper | A helper elf (different from Pip: a red tunic) at work, three-quarter, facing right | imagegen2 (ref anchor) | 1024×1024 → 256×256 WebP | yes | bobbing in code | must |
+| hammer-1…hammer-4 | Cheap Hammer, Heavy Hammer, Supreme Hammer (brass and red), Thunder Mallet (a stormy blue-silver mallet with a crackle of lightning, original design); drawn straight, handle down, for rotating in the elf's hand; grip point noted per hammer | imagegen2 (ref anchor) | 1024×1024 → 256×256 WebP each (shop) and 512×512 WebP (in hand) | yes | rotated in code | must |
+| elf-helper | A helper elf (different from the elf: a red tunic) at work, three-quarter, facing right | imagegen2 (ref anchor) | 1024×1024 → 256×256 WebP | yes | bobbing in code | must |
 | toy-machine | Clockwork gingerbread toy machine, three-quarter, facing right | imagegen2 (ref anchor) | 1024×1024 → 256×256 WebP | yes | wobble in code | must |
 | reindeer-team | Two reindeer working a big wooden toy press, facing right | imagegen2 (ref anchor) | 1024×1024 → 384×384 WebP | yes | bobbing in code | must |
 | upgrades | 6 icons: helper elf holding a wooden, a steel and a golden hammer (3, ref elf-helper), mug of hot cocoa, wrapping station, conveyor belt | imagegen2 (ref anchor) | 1024×1024 → 256×256 WebP each | yes | | must |
@@ -592,7 +593,7 @@ Nice to have:
 | sleigh-cutout | Santa's sleigh and reindeer alone, the sleigh piled high with wrapped presents, for flying across the moon | imagegen2 (refs santa-portrait, finale-sky, presents) | 1536×1024 → 1024×683 WebP | yes | moves in code | should |
 | howto-1…3 | How-to-play pictures: reuse the game's own art, put together in code | code | — | — | | must |
 | mock-workshop | Mock of the workshop screen for the shared design, composited from the shared-design pictures | code (Pillow) | 1280×800 PNG | no | | must (shared design) |
-| app-icon | App icon: Pip's face with a hammer, on red | imagegen2 (ref anchor) | 1024×1024, made into favicon, 192, 512 and maskable icons in code | no | | must |
+| app-icon | App icon: The elf's face with a hammer, on red | imagegen2 (ref anchor) | 1024×1024, made into favicon, 192, 512 and maskable icons in code | no | | must |
 | social-card | 1200×630 link preview, screenshotted from the title screen | code (playwright-cli) | JPG | no | | must |
 | github-social | 1280×640 repo preview | code (playwright-cli) | PNG | no | | must |
 | music-workshop | Workshop music | audiogen music | 120 s MP3 at 96 kbps | | looped with a crossfade | must |
@@ -623,7 +624,7 @@ Nice to have:
   - The UI is in HTML and CSS: shelf, shop, bars, cards and dialogs.
   - The stage is a fixed-aspect 4:3 box. In it the art sits as positioned
     images (placed by the stage map, in the map's draw order), with one
-    canvas layer for Pip's hammer and fist crop, particles, the presents
+    canvas layer for the elf's hammer and fist crop, particles, the presents
     flying to the pile, and the tree's lights. The stage map's numbers
     live in one object in `bench.js`.
   - Three layouts:
@@ -717,7 +718,7 @@ Nice to have:
   bundled in `game/vendor/` (`gh-feedback.js`, `report.js`), with
   `trigger="none"`, `repo=""` until publishing fills it in, the light theme
   and cranberry accent (`#9e2a2b`), and Nunito. `main.js` calls
-  `window.gameReport?.setup({ game: 'Chief Toy Officer', key:
+  `window.gameReport?.setup({ game: 'Xmas Clicker', key:
   'chief-toy-officer', visibility: 'on', state: () => window.__game.state(),
   pause, grab, releaseAll })`: `pause` opens pause and settings (never a
   toggle), `grab` renders the stage canvas layer over the stage images to a
@@ -782,7 +783,7 @@ A forecast, not a promise.
   and 3 layouts.
 - **The hardest work:**
   - the balance: getting 26 minutes that never feel like waiting
-  - making the tap feel great on phones, with the hammer in Pip's fist
+  - making the tap feel great on phones, with the hammer in the elf's fist
     (the pivot JSON and the fist crop) landing on every toy
   - keeping 27 icons in one style
 - **Cost:**
@@ -790,7 +791,7 @@ A forecast, not a promise.
     toy-01, toy-05, toy-08): $0.64 spent, counted in the lines below. The
     screen mock is composited in code.
   - Images (imagegen2, about 35): about $8–10.
-  - The Pip animation: about $1.5.
+  - The the elf animation: about $1.5.
   - nanogen backgrounds (4): about $0.5.
   - Music (3 minutes): about $1.
   - Sound effects (17) and the voice line: about $2.5.
@@ -808,8 +809,8 @@ A forecast, not a promise.
 - [ ] The game can always go on: no state without a way to earn, and Christmas Eve always reachable.
 - [ ] Every control works on desktop (mouse and keyboard) and on touch; several fingers tapping at once all count; held keys don't auto-click; fast tapping never closes a card; click Buy, then press Space 5 times: no extra purchase, 5 hammer hits; tapping a shooting star catches it without a hammer hit.
 - [ ] Every screen looks finished at every targeted size, from the first load; the longest rank title fits at 360 px, and is readable at 14 px or more with the work bar visible at 667×375 and 844×390; the panel shows at least two cards at 360×640.
-- [ ] The stage matches the stage map: Pip, the toy, the bench, the tree, the crew and the window are all clearly visible, nothing covers the crew, and the crew and pile appear as they're earned.
-- [ ] Pip swings the current hammer, in the same view as the rest of the stage; on the strike frame every hammer's head lands on the toy, and his fingers wrap the handle.
+- [ ] The stage matches the stage map: The elf, the toy, the bench, the tree, the crew and the window are all clearly visible, nothing covers the crew, and the crew and pile appear as they're earned.
+- [ ] The elf swings the current hammer, in the same view as the rest of the stage; on the strike frame every hammer's head lands on the toy, and the fingers wrap the handle.
 - [ ] The whole game downloads in under 6 MB (images under 2.5 MB).
 - [ ] Music and sound play (after the first tap or key), mute works, and late-game batches don't flood the speakers.
 - [ ] Progress is saved and restored, including each toy's progress and away earnings, and a broken save doesn't crash.

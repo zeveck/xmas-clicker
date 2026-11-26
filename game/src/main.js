@@ -1,4 +1,4 @@
-// Chief Toy Officer: the game. Screens, the loop, input, the shop, cards and the finale.
+// Xmas Clicker: the game. Screens, the loop, input, the shop, cards and the finale.
 const SIDE = '(orientation: landscape) and (max-height: 500px), (orientation: landscape) and (max-width: 899px)';
 import * as R from './rules.js';
 import { TOYS, RANKS, HAMMERS, HELPERS, UPGRADES, format, tally } from './rules.js';
@@ -246,7 +246,7 @@ function refresh() {
   updateDots();
   // Banner and hint
   let banner = '';
-  if (R.isFirstPhone(S, 9) && !eve) banner = gold && S.toy === 9 ? 'Pip adds the finishing touches: tap!' : 'Build a Smartphone before the sleigh leaves!';
+  if (R.isFirstPhone(S, 9) && !eve) banner = gold && S.toy === 9 ? 'You add the finishing touches: tap!' : 'Build a Smartphone before the sleigh leaves!';
   const bn = $('banner');
   if (bn.textContent !== banner) bn.textContent = banner;
   bn.hidden = !banner;
@@ -710,7 +710,7 @@ addEventListener('orientationchange', () => setTimeout(() => screen === 'worksho
 
 // ---------- Bug reports ----------
 window.gameReport?.setup({
-  game: 'Chief Toy Officer', key: 'chief-toy-officer', visibility: 'on',
+  game: 'Xmas Clicker', key: 'chief-toy-officer', visibility: 'on',
   state: () => window.__game.state(),
   pause: () => openPause(),
   grab: () => Bench.grab(),

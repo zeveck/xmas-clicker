@@ -1,5 +1,5 @@
 // The stage: the workshop drawn on one canvas, by the stage map (x in % of
-// width, y in % of height, 4:3). Pip, the hammer, the toy, the crew, the tree
+// width, y in % of height, 4:3). You (the elf), the hammer, the toy, the crew, the tree
 // and its lights, the present pile, particles, the shooting star and the finale.
 import { TOYS, HAMMERS } from './rules.js';
 
@@ -10,7 +10,7 @@ export const MAP = {
   tree: { x: 71, w: 29, foot: 89 },
   bench: { x: 36, w: 40, foot: 91 },
   toy: { cx: 52.5, w: 14, foot: 68.5, xMin: 46, xMax: 62 },
-  pip: { x: 12, w: 40, foot: 86.2 }, // Pip stands on a step stool, so his strike reaches the bench top
+  pip: { x: 12, w: 40, foot: 86.2 }, // the elf stands on a step stool, so the strike reaches the bench top
   stool: { x: 23.6, w: 17, foot: 98.5 },
   crew: [ // [x0, x1, y0, y1] boxes, feet at y1
     { kind: 0, n: 1, box: [1, 11.5, 52, 66] },
@@ -87,7 +87,7 @@ function layout(toyIdx) {
   L.pip = placeCanvas('sprites/pip-swing/frame-0', MAP.pip.x, MAP.pip.w, MAP.pip.foot);
   const [, , , py0, , py1] = bboxOf('sprites/pip-swing/frame-0');
   L.pipH = (py1 - py0) * L.pip.s;
-  // The hammer: same reach for every hammer (grip to head centre = 35% of Pip's height).
+  // The hammer: same reach for every hammer (grip to head centre = 35% of the elf's height).
   L.hammerLen = 0.35 * L.pipH;
   // The toy: top centre where the hammer head lands on the strike frame.
   const tp = 'items/' + TOYS[toyIdx].id;

@@ -1,14 +1,14 @@
-# Chief Toy Officer
+# Xmas Clicker
 
 *Hammer your way from Assistant Junior Toy Maker to the top of Santa's workshop.*
 
-You're Pip, the newest elf in Santa's workshop. Tap the bench to hammer toys
+You're the newest elf in Santa's workshop. Tap the bench to hammer toys
 together, spend the cookies they earn on better hammers and more helpers, and
 watch the presents pile up under the tree. Every promotion unlocks a new toy
 and a sillier job title, until Santa names you Chief Toy Officer and you build
 the last toy before the sleigh leaves on Christmas Eve.
 
-**[▶ Play Chief Toy Officer](https://chieftoyofficer.synapticnoise.com/)** in your browser. No
+**[▶ Play Xmas Clicker](https://chieftoyofficer.synapticnoise.com/)** in your browser. No
 install, works on desktop and on phones.
 
 ![The title screen: the workshop at night in the snow](media/screenshots/title.png)
@@ -17,7 +17,7 @@ install, works on desktop and on phones.
 
 | | |
 |---|---|
-| ![Pip at the bench with a full crew, a Thunder Mallet and a pile of presents](media/screenshots/workshop.png) | ![Santa's promotion card on a phone](media/screenshots/promotion.png) |
+| ![You at the bench with a full crew, a Thunder Mallet and a pile of presents](media/screenshots/workshop.png) | ![Santa's promotion card on a phone](media/screenshots/promotion.png) |
 | Ten toys, from the Wooden Tractor to the Smartphone, four hammers, elves, clockwork Toy Machines and a Reindeer Team. | Ten ranks, word for word from the original, each announced by Santa himself. |
 | ![The sleigh crossing the moon on Christmas Eve](media/screenshots/christmas-eve.png) | ![The Christmas Eve card](media/screenshots/christmas-eve-card.png) |
 | Christmas Eve: the tree lights up, the presents float away, and the sleigh crosses the moon. | Then keep building as long as you like. |
@@ -39,7 +39,7 @@ you from your first tap to Christmas Eve.
 
 ## How it was made
 
-Chief Toy Officer was made by [Claude Code](https://claude.com/claude-code) with
+Xmas Clicker was made by [Claude Code](https://claude.com/claude-code) with
 [gamegen](https://github.com/zeveck/gamegen), from this request:
 
 > `/gamegen --remake https://synapticnoise.com/xmasclicker --plan-only --share-design --leeway lots`
@@ -66,12 +66,16 @@ And to fix the first player report, [#1 "Elves"](https://github.com/zeveck/xmas-
 
 > `/gamegen:gamegen --fix all --publish --no-confirm`
 
+And to take back the original's name, Xmas Clicker, and leave the elf unnamed (the elf is simply you):
+
+> `/gamegen:gamegen --change rename the game Xmas Clicker and leave the elf unnamed: say "you" instead of Pip --publish --no-confirm`
+
 gamegen had review agents polish the design, made the art, animation, music and
 sound with these plugins, built it, and play-tested it:
 
-- [imagegen2](https://github.com/zeveck/imagegen2): Pip, every toy, hammer, helper, upgrade and present, Santa, the bench, the tree, the stool and the sleigh
+- [imagegen2](https://github.com/zeveck/imagegen2): the elf, every toy, hammer, helper, upgrade and present, Santa, the bench, the tree, the stool and the sleigh
 - [nanogen](https://github.com/zeveck/nanogen): the workshop, the title art and the moonlit sky of Christmas Eve
-- [anim8gen](https://github.com/zeveck/anim8gen): Pip's hammer swing
+- [anim8gen](https://github.com/zeveck/anim8gen): the elf's hammer swing
 - [audiogen](https://github.com/zeveck/audiogen): the workshop music, the Christmas Eve music, 17 sound effects and Santa's "Ho ho ho"
 
 ## Replaying the tests
@@ -81,7 +85,7 @@ sound with these plugins, built it, and play-tested it:
 
 ## Playing locally
 
-Chief Toy Officer is a plain web page with no build step. Serve the `game`
+Xmas Clicker is a plain web page with no build step. Serve the `game`
 folder with any static web server, for example:
 
     cd game
@@ -91,5 +95,5 @@ then open http://localhost:8000.
 
 ## Credits
 
-- An idea by Rich Conlan, from the 2017 Xmas Clicker and Sean Dailey's elf prototype.
+- An idea by Rich Conlan, from the 2017 game of the same name and Sean Dailey's elf prototype.
 - Fonts: [Mountains of Christmas](https://fonts.google.com/specimen/Mountains+of+Christmas) by Tart Workshop (Apache License 2.0) and [Nunito](https://fonts.google.com/specimen/Nunito) by Vernon Adams and others (SIL Open Font License 1.1). Their licenses are in `game/fonts/`.

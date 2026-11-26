@@ -1,4 +1,4 @@
-// Balance check for Chief Toy Officer, using the game's own rules (game/src/rules.js).
+// Balance check for Xmas Clicker, using the game's own rules (game/src/rules.js).
 // node tools/balance.mjs            runs the standard players, the checks, and writes tools/snapshots/rank-<n>.json
 // node tools/balance.mjs <taps/s> <catch 0..1>
 // Time is active time with no card open (cards freeze the workshop).
