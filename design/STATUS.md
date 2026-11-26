@@ -13,6 +13,7 @@
 8. `/gamegen:gamegen --change rename the game Xmas Clicker and leave the elf unnamed: say "you" instead of Pip --publish --no-confirm`
 9. `/gamegen --out xmas-clicker --publish xmasclicker.synapticnoise.com` (asked for with "Do both of those", together with 10)
 10. `/gamegen --out xmas-clicker --change add a little snow globe on the shelf that shakes when you get promoted`
+11. `/gamegen:gamegen --out xmas-clicker --publish` (confirmed: `yes`)
 - Later request (exactly as typed): `When this lands, we should apply /gamegen:gamegen --feedback to both xmas-clicker and xmas-everywhere and /gamegen:gamegen --saves to xmas-everywhere`
 
 ## Settings
