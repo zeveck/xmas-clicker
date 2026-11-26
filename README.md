@@ -8,7 +8,7 @@ watch the presents pile up under the tree. Every promotion unlocks a new toy
 and a sillier job title, until Santa names you Chief Toy Officer and you build
 the last toy before the sleigh leaves on Christmas Eve.
 
-**[▶ Play Xmas Clicker](https://chieftoyofficer.synapticnoise.com/)** in your browser. No
+**[▶ Play Xmas Clicker](https://xmasclicker.synapticnoise.com/)** in your browser. No
 install, works on desktop and on phones.
 
 ![The title screen: the workshop at night in the snow](media/screenshots/title.png)

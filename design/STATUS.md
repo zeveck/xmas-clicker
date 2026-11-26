@@ -11,6 +11,8 @@
 7. `/gamegen:gamegen --fix all --publish --no-confirm`
    - #1: Elves (https://github.com/zeveck/xmas-clicker/issues/1), filed by zeveck
 8. `/gamegen:gamegen --change rename the game Xmas Clicker and leave the elf unnamed: say "you" instead of Pip --publish --no-confirm`
+9. `/gamegen --out xmas-clicker --publish xmasclicker.synapticnoise.com` (asked for with "Do both of those", together with 10)
+10. `/gamegen --out xmas-clicker --change add a little snow globe on the shelf that shakes when you get promoted`
 - Later request (exactly as typed): `When this lands, we should apply /gamegen:gamegen --feedback to both xmas-clicker and xmas-everywhere and /gamegen:gamegen --saves to xmas-everywhere`
 
 ## Settings
@@ -26,7 +28,7 @@
 - Available: imagegen2, anim8gen (OpenAI ok), nanogen (Gemini ok), audiogen (ElevenLabs ok), playwright-cli, node, Python + Pillow (installed this run).
 
 - GitHub preview image: to upload (changed 2026-11-26)
-- Repo: zeveck/xmas-clicker (public). Address: https://chieftoyofficer.synapticnoise.com/
+- Repo: zeveck/xmas-clicker (public). Address: https://xmasclicker.synapticnoise.com/ (moved from chieftoyofficer.synapticnoise.com on 2026-11-26)
 
 ## Phases
 
