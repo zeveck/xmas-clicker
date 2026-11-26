@@ -25,7 +25,7 @@
 - ElevenLabs tier: creator (no credit line needed)
 - Available: imagegen2, anim8gen (OpenAI ok), nanogen (Gemini ok), audiogen (ElevenLabs ok), playwright-cli, node, Python + Pillow (installed this run).
 
-- GitHub preview image: to upload (none set)
+- GitHub preview image: to upload (changed 2026-11-26)
 - Repo: zeveck/xmas-clicker (public). Address: https://chieftoyofficer.synapticnoise.com/
 
 ## Phases
