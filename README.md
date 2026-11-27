@@ -1,4 +1,4 @@
-# Xmas Clicker
+# Tip Tap Toys
 
 *Hammer your way from Assistant Junior Toy Maker to the top of Santa's workshop.*
 
@@ -8,7 +8,7 @@ watch the presents pile up under the tree. Every promotion unlocks a new toy
 and a sillier job title, until Santa names you Chief Toy Officer and you build
 the last toy before the sleigh leaves on Christmas Eve.
 
-**[▶ Play Xmas Clicker](https://xmasclicker.synapticnoise.com/)** in your browser. No
+**[▶ Play Tip Tap Toys](https://tiptaptoys.synapticnoise.com/)** in your browser. No
 install, works on desktop and on phones.
 
 ![The title screen: the workshop at night in the snow](media/screenshots/title.png)
@@ -39,7 +39,7 @@ you from your first tap to Christmas Eve.
 
 ## How it was made
 
-Xmas Clicker was made by [Claude Code](https://claude.com/claude-code) with
+Tip Tap Toys was made by [Claude Code](https://claude.com/claude-code) with
 [gamegen](https://github.com/zeveck/gamegen), from this request:
 
 > `/gamegen --remake https://synapticnoise.com/xmasclicker --plan-only --share-design --leeway lots`
@@ -74,6 +74,10 @@ And to put a little snow globe on the shelf that shakes when you get promoted:
 
 > `/gamegen --out xmas-clicker --change add a little snow globe on the shelf that shakes when you get promoted`
 
+And finally, to settle on its name, Tip Tap Toys, at its own address:
+
+> `/gamegen --out xmas-clicker --change rename the game Tip Tap Toys --publish tiptaptoys.synapticnoise.com --no-confirm` (from "Let's use Tip Tap Toys. Update everything appropriately and publish no-confirm.")
+
 gamegen had review agents polish the design, made the art, animation, music and
 sound with these plugins, built it, and play-tested it:
 
@@ -89,7 +93,7 @@ sound with these plugins, built it, and play-tested it:
 
 ## Playing locally
 
-Xmas Clicker is a plain web page with no build step. Serve the `game`
+Tip Tap Toys is a plain web page with no build step. Serve the `game`
 folder with any static web server, for example:
 
     cd game
@@ -99,5 +103,5 @@ then open http://localhost:8000.
 
 ## Credits
 
-- An idea by Rich Conlan, from the 2017 game of the same name and Sean Dailey's elf prototype.
+- An idea by Rich Conlan, from the 2017 Xmas Clicker and Sean Dailey's elf prototype.
 - Fonts: [Mountains of Christmas](https://fonts.google.com/specimen/Mountains+of+Christmas) by Tart Workshop (Apache License 2.0) and [Nunito](https://fonts.google.com/specimen/Nunito) by Vernon Adams and others (SIL Open Font License 1.1). Their licenses are in `game/fonts/`.

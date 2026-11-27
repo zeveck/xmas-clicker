@@ -1,4 +1,4 @@
-# Xmas Clicker
+# Tip Tap Toys
 
 *Hammer your way from Assistant Junior Toy Maker to the top of Santa's workshop.*
 
@@ -22,7 +22,7 @@ Officer and you build the last toy before the sleigh leaves on Christmas Eve.
 - Feedback: on (a "Report a bug" button for players; see the tech plan)
 - Remake of: Xmas Clicker (synapticnoise.com/xmasclicker), leeway lots. See `ORIGINAL.md`.
 - Decisions made on the player's behalf:
-  - The name is **Xmas Clicker** (renamed from Chief Toy Officer on request, 2026-11-26; Chief Toy Officer stays the top rank). The game never calls itself a remake (changed on request, 2026-11-24); the credits name the 2017 game of the same name.
+  - The name is **Tip Tap Toys** (on request, 2026-11-27; it was Chief Toy Officer, then briefly Xmas Clicker; Chief Toy Officer stays the top rank). The game never calls itself a remake (changed on request, 2026-11-24); the credits name the 2017 Xmas Clicker as where it came from.
   - The elf has no name: the game says "you" (changed on request, 2026-11-26). Files keep their `pip-` names.
   - Three names change for originality: **Thunder Mallet** (was Thor's Hammer), **Pixel Play** console (was Super Game System), **Doodle Dial** (was Sketch An Etch).
   - The original's toy "value" becomes **cookies**, the money you spend.
@@ -729,7 +729,7 @@ Nice to have:
   bundled in `game/vendor/` (`gh-feedback.js`, `report.js`), with
   `trigger="none"`, `repo=""` until publishing fills it in, the light theme
   and cranberry accent (`#9e2a2b`), and Nunito. `main.js` calls
-  `window.gameReport?.setup({ game: 'Xmas Clicker', key:
+  `window.gameReport?.setup({ game: 'Tip Tap Toys', key:
   'chief-toy-officer', visibility: 'on', state: () => window.__game.state(),
   pause, grab, releaseAll })`: `pause` opens pause and settings (never a
   toggle), `grab` renders the stage canvas layer over the stage images to a

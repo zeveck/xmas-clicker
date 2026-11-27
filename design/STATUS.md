@@ -1,4 +1,4 @@
-# Xmas Clicker
+# Tip Tap Toys
 
 ## Requests
 
@@ -14,6 +14,7 @@
 9. `/gamegen --out xmas-clicker --publish xmasclicker.synapticnoise.com` (asked for with "Do both of those", together with 10)
 10. `/gamegen --out xmas-clicker --change add a little snow globe on the shelf that shakes when you get promoted`
 11. `/gamegen:gamegen --out xmas-clicker --publish` (confirmed: `yes`)
+12. `Let's use Tip Tap Toys. Update everything appropriately and publish no-confirm.` (run as `/gamegen --out xmas-clicker --change rename the game Tip Tap Toys --publish tiptaptoys.synapticnoise.com --no-confirm`)
 - Later request (exactly as typed): `When this lands, we should apply /gamegen:gamegen --feedback to both xmas-clicker and xmas-everywhere and /gamegen:gamegen --saves to xmas-everywhere`
 
 ## Settings
@@ -28,8 +29,8 @@
 - ElevenLabs tier: creator (no credit line needed)
 - Available: imagegen2, anim8gen (OpenAI ok), nanogen (Gemini ok), audiogen (ElevenLabs ok), playwright-cli, node, Python + Pillow (installed this run).
 
-- GitHub preview image: to upload (changed 2026-11-26)
-- Repo: zeveck/xmas-clicker (public). Address: https://xmasclicker.synapticnoise.com/ (moved from chieftoyofficer.synapticnoise.com on 2026-11-26)
+- GitHub preview image: to upload (changed 2026-11-27)
+- Repo: zeveck/xmas-clicker (public). Address: https://tiptaptoys.synapticnoise.com/ (moved from xmasclicker.synapticnoise.com on 2026-11-27, which had moved from chieftoyofficer.synapticnoise.com on 2026-11-26)
 
 ## Phases
 
@@ -57,3 +58,4 @@
 - [x] Moved to https://xmasclicker.synapticnoise.com/ (2026-11-26): DNS CNAME added at GoDaddy, HTTPS on, live game checked at 1280 and 390; gallery card, plans card, art page and sitemap point there; repo homepage updated. The old chieftoyofficer address now gives GitHub's 404 (its CNAME is still at GoDaddy, unused).
 - [x] Change 10: the snow globe on the lower shelf (left of the tree's tip) rocks, glints and tinkles when a promotion card closes, with snow swirling inside and settling over ~7 s. New: snow-globe picture (imagegen2) and globe-shake sound (audiogen), about $0.11 of $20. Checked: promoted from rank 1 with real taps at 1280, 800, 360, 393, 667 and 844 (frames at 60 ms to 7.5 s, design/screenshots/globe-frames.jpg), the sound loads (21 decoded) and sits at the other effects' level; ranks 9→10 and 10→Christmas Eve replayed with real input; no console errors. Art sheet rebuilt in .gamegen/art-sheet (manifest updated); on the plans page since the publish below.
 - [x] Published change 10 (2026-11-26): deployed; the live game checked at 1280 and 390 (promoted with real taps, the globe shook, sound loaded, scanner clean, no errors); art page on the plans page now shows the snow globe and its tinkle.
+- [x] Change 12: renamed Tip Tap Toys (title screen, page title and tags, app name, credits now "from the 2017 Xmas Clicker", report-a-bug name, README, design, social card and GitHub preview). Checked: title and credits at 1280, 800, 360, 393, 667 and 844 with the text scanner and real clicks, no console errors; previews looked at.

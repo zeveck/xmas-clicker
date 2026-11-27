@@ -1,4 +1,4 @@
-// Xmas Clicker: all the numbers and the pure rules. No DOM, so node can import it.
+// Tip Tap Toys: all the numbers and the pure rules. No DOM, so node can import it.
 
 export const TOYS = [
   { id: 'toy-01', name: 'Wooden Tractor', work: 10, cookies: 2, cheer: 1 },

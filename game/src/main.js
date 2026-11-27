@@ -1,4 +1,4 @@
-// Xmas Clicker: the game. Screens, the loop, input, the shop, cards and the finale.
+// Tip Tap Toys: the game. Screens, the loop, input, the shop, cards and the finale.
 const SIDE = '(orientation: landscape) and (max-height: 500px), (orientation: landscape) and (max-width: 899px)';
 import * as R from './rules.js';
 import { TOYS, RANKS, HAMMERS, HELPERS, UPGRADES, format, tally } from './rules.js';
@@ -711,7 +711,7 @@ addEventListener('orientationchange', () => setTimeout(() => screen === 'worksho
 
 // ---------- Bug reports ----------
 window.gameReport?.setup({
-  game: 'Xmas Clicker', key: 'chief-toy-officer', visibility: 'on',
+  game: 'Tip Tap Toys', key: 'chief-toy-officer', visibility: 'on',
   state: () => window.__game.state(),
   pause: () => openPause(),
   grab: () => Bench.grab(),
