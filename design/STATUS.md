@@ -15,6 +15,8 @@
 10. `/gamegen --out xmas-clicker --change add a little snow globe on the shelf that shakes when you get promoted`
 11. `/gamegen:gamegen --out xmas-clicker --publish` (confirmed: `yes`)
 12. `Let's use Tip Tap Toys. Update everything appropriately and publish no-confirm.` (run as `/gamegen --out xmas-clicker --change rename the game Tip Tap Toys --publish tiptaptoys.synapticnoise.com --no-confirm`)
+13. `"Assistant Junior Toy Maker" has the y cut off in the header on desktop anyways` (fixed: the rank title gets room for low tails)
+14. `let's publish no-confirm.` (run as `/gamegen --out xmas-clicker --publish --no-confirm`)
 - Later request (exactly as typed): `When this lands, we should apply /gamegen:gamegen --feedback to both xmas-clicker and xmas-everywhere and /gamegen:gamegen --saves to xmas-everywhere`
 
 ## Settings
