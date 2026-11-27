@@ -104,6 +104,8 @@ gh-feedback { font-family: Nunito, system-ui, sans-serif; }
 .topbar { grid-area: top; background: linear-gradient(#4a2d1a, #3b2414); color: #fff3da; padding: 6px 10px 8px; border-bottom: 3px solid var(--honey); }
 .rank-row { display: flex; align-items: center; gap: 8px; }
 .rank-title { flex: 1; min-width: 0; font: 700 26px/1.05 'Mountains of Christmas', serif; color: #ffe7a8; text-shadow: 0 2px 0 #0008; white-space: nowrap; overflow: hidden; }
+/* The box clips overflow (fitTitle shrinks long titles to fit), so give the font's tall tops and low tails (y, J, g) room inside it without changing the layout. */
+.rank-title { padding-block: 0.12em 0.28em; margin-block: -0.12em -0.28em; }
 .top-buttons { display: flex; gap: 8px; }
 .stat-row { display: flex; align-items: center; gap: 10px; margin-top: 4px; font-weight: 900; }
 .ico { width: 28px; height: 28px; flex: none; }
